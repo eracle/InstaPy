@@ -66,12 +66,6 @@
 > [https://sites.google.com/a/chromium.org/chromedriver/downloads]
 
 
-#### 4. Edit the instapy.py file
-- Open file instapy.py an disabling the clarifai import
-- comment the line "from .clarifai_util import check_image"
-> `from .clarifai_util import check_image`
-
-
 #### 5. Starting the script
 - Start the Gui by clicking at the file InstaPy.exe
 - Insert your parameters and press run

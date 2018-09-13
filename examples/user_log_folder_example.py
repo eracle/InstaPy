@@ -18,8 +18,6 @@ try:
     # default enabled=False, follows ~ every 10th user from the images
     session.set_do_follow(enabled=True, percentage=10)
 
-    session.set_use_clarifai(enabled=False)
-
     """Like util"""
     # searches the description and owner comments for the given words
     # and won't like the image if one of the words are in there

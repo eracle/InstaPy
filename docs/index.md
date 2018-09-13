@@ -266,63 +266,6 @@ crontab -e
 45 */4 * * * cd /home/user/InstaPy && /usr/bin/python ./quickstart.py
 ```
 
-## Clarifai ImageAPI
-<img src="https://d1qb2nb5cznatu.cloudfront.net/startups/i/396673-2fb6e8026b393dddddc093c23d8cd866-medium_jpg.jpg?buster=1399901540" width="200" align="right">
-
-###### Note: Head over to [https://developer.clarifai.com/signup/](https://developer.clarifai.com/signup/) and create a free account, once you’re logged in go to [https://developer.clarifai.com/account/applications/](https://developer.clarifai.com/account/applications/) and create a new application. You can find the client ID and Secret there. You get 5000 API-calls free/month.
-
-If you want the script to get your Clarifai_API_KEY from your environment, you can do:
-
-```
-export CLARIFAI_API_KEY="<API Key>"
-```
-### Example with Imagecontent handling
-
-```python
-from instapy import InstaPy
-
-InstaPy(username='test', password='test')\
-  .login()\
-  .set_do_comment(True, percentage=10)\
-  .set_comments(['Cool!', 'Awesome!', 'Nice!'])\
-  .set_dont_include(['friend1', 'friend2', 'friend3'])\
-  .set_dont_like(['food', 'girl', 'hot'])\
-  .set_ignore_if_contains(['pizza'])\
-  .set_use_clarifai(enabled=True)\
-  .clarifai_check_img_for(['nsfw'])\
-  .clarifai_check_img_for(['food', 'lunch', 'dinner'], comment=True, comments=['Tasty!', 'Nice!', 'Yum!'])\
-  .like_by_tags(['dog', '#cat'], amount=100)\
-  .end()
-```
-### Enabling Imagechecking
-
-```python
-#default enabled=False , enables the checking with the clarifai api (image tagging)
-#if api_key is not set, it will get the environment Variables
-# 'CLARIFAI_API_KEY'
-
-session.set_use_clarifai(enabled=True, api_key='xxx')
-```
-### Filtering inappropriate images
-
-```python
-# uses the clarifai api to check if the image contains nsfw content
-# -> won't comment if image is nsfw
-
-session.clarifai_check_img_for(['nsfw'])
-```
-### Specialized comments for images with specific content
-
-```python
-#checks the image for keywords food and lunch, if both are found,
-#comments with the given comments. If full_match is False (default), it only
-# requires a single tag to match Clarifai results.
-
-session.clarifai_check_img_for(['food', 'lunch'], comment=True, comments=['Tasty!', 'Yum!'], full_match=True)
-```
-
-###### Check out [https://clarifai.com/demo](https://clarifai.com/demo) to see some of the available tags.</h6>
-
 ## Running with Docker
 
 ### 1. Build the Image
@@ -582,63 +525,6 @@ crontab -e
 45 */4 * * * cd /home/user/InstaPy && /usr/bin/python ./quickstart.py
 ```
 
-### Clarifai ImageAPI
-<img src="https://d1qb2nb5cznatu.cloudfront.net/startups/i/396673-2fb6e8026b393dddddc093c23d8cd866-medium_jpg.jpg?buster=1399901540" width="200" align="right">
-
-###### Note: Head over to https://developer.clarifai.com/signup/ and create a free account, once you're logged in go to https://developer.clarifai.com/account/applications/ and create a new application. You can find the client ID and Secret there. You get 5000 API-calls free/month.  
-
-If you want the script to get your CLARIFAI_API_KEY from your environment, you can do:
-
-```
-export CLARIFAI_API_KEY="<API KEY>"
-```
-#### Example with Imagecontent handling
-
-```python
-from instapy import InstaPy
-
-InstaPy(username='test', password='test')\
-  .login()\
-  .set_do_comment(True, percentage=10)\
-  .set_comments(['Cool!', 'Awesome!', 'Nice!'])\
-  .set_dont_include(['friend1', 'friend2', 'friend3'])\
-  .set_dont_like(['food', 'girl', 'hot'])\
-  .set_ignore_if_contains(['pizza'])\
-  .set_use_clarifai(enabled=True)\
-  .clarifai_check_img_for(['nsfw'])\
-  .clarifai_check_img_for(['food', 'lunch', 'dinner'], comment=True, comments=['Tasty!', 'Nice!', 'Yum!'])\
-  .like_by_tags(['dog', '#cat'], amount=100)\
-  .end()
-```
-##### Enabling Imagechecking
-
-```python
-#default enabled=False , enables the checking with the clarifai api (image tagging)
-#if secret and proj_id are not set, it will get the environment Variables
-# 'CLARIFAI_API_KEY'
-
-session.set_use_clarifai(enabled=True, api_key='xxx')
-```
-##### Filtering inappropriate images
-
-```python
-# uses the clarifai api to check if the image contains nsfw content
-# -> won't comment if image is nsfw
-
-session.clarifai_check_img_for(['nsfw'])
-```
-
-##### Specialized comments for images with specific content
-
-```python
-#checks the image for keywords food and lunch, if both are found,
-#comments with the given comments. If full_match is False (default), it only
-# requires a single tag to match Clarifai results.
-
-session.clarifai_check_img_for(['food', 'lunch'], comment=True, comments=['Tasty!', 'Yum!'], full_match=True)
-```
-
-###### Check out https://clarifai.com/demo to see some of the available tags.
 
 ### Running it with Docker
 

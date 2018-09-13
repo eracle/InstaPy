@@ -19,7 +19,6 @@ from contextlib import contextmanager
 from copy import deepcopy
 
 # import InstaPy modules
-from .clarifai_util import check_image
 from .comment_util import comment_image
 from .comment_util import verify_commenting
 from .like_util import check_link
@@ -160,12 +159,6 @@ class InstaPy:
         self.user_interact_media = None
         self.user_interact_percentage = 0
         self.user_interact_random = False
-
-        self.use_clarifai = False
-        self.clarifai_api_key = None
-        self.clarifai_img_tags = []
-        self.clarifai_img_tags_skip = []
-        self.clarifai_full_match = False
 
         self.potency_ratio = 1.3466
         self.delimit_by_numbers = True
@@ -517,31 +510,6 @@ class InstaPy:
         self.switch_language = option
         return self
 
-    def set_use_clarifai(self, enabled=False, api_key=None, full_match=False):
-        """
-        Defines if the clarifai img api should be used
-        Which 'project' will be used (only 5000 calls per month)
-
-        Raises:
-            InstaPyError if os is windows
-        """
-        if self.aborting:
-            return self
-
-        #if os.name == 'nt':
-        #    raise InstaPyError('Clarifai is not supported on Windows')
-
-        self.use_clarifai = enabled
-
-        if api_key is None and self.clarifai_api_key is None:
-            self.clarifai_api_key = os.environ.get('CLARIFAI_API_KEY')
-        elif api_key is not None:
-            self.clarifai_api_key = api_key
-
-        self.clarifai_full_match = full_match
-
-        return self
-
     def set_smart_hashtags(self,
                            tags=None,
                            limit=3,
@@ -583,21 +551,6 @@ class InstaPy:
         # delete duplicated tags
         self.smart_hashtags = list(set(self.smart_hashtags))
         return self
-
-    def clarifai_check_img_for(self, tags=None, tags_skip=None, comment=False, comments=None):
-        """Defines the tags, the images should be checked for"""
-        if self.aborting:
-            return self
-
-        if tags is None and not self.clarifai_img_tags:
-            self.use_clarifai = False
-        elif tags:
-            self.clarifai_img_tags.append((tags, comment, comments))
-            self.clarifai_img_tags_skip = tags_skip
-
-
-        return self
-
 
     def follow_commenters(self, usernames, amount=10, daysold=365, max_pic=50, sleep_delay=600, interact=False):
         """ Follows users' commenters """
@@ -1092,19 +1045,6 @@ class InstaPy:
                             following = random.randint(
                                 0, 100) <= self.follow_percentage
 
-                            if self.use_clarifai and (following or commenting):
-                                try:
-                                    checked_img, temp_comments = (
-                                        check_image(self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                    )
-                                except Exception as err:
-                                    self.logger.error(
-                                        'Image check error: {}'.format(err))
 
                             # comments
                             if (self.do_comment and
@@ -1120,7 +1060,6 @@ class InstaPy:
                                                                               self.logger)
                                 if self.commenting_approved:
                                     if temp_comments:
-                                        # Use clarifai related comments only!
                                         comments = temp_comments
                                     elif is_video:
                                         comments = (self.comments +
@@ -1289,19 +1228,6 @@ class InstaPy:
                             self.logger.info("--> Image not commented: skipping out of given comment percentage")
                             continue
 
-                        if self.use_clarifai:
-                            try:
-                                checked_img, temp_comments = (
-                                    check_image(self.browser,
-                                                self.clarifai_api_key,
-                                                self.clarifai_img_tags,
-                                                self.clarifai_img_tags_skip,
-                                                self.logger,
-                                                self.clarifai_full_match)
-                                )
-                            except Exception as err:
-                                self.logger.error(
-                                    'Image check error: {}'.format(err))
 
                         if (self.do_comment and
                             user_name not in self.dont_include and
@@ -1315,7 +1241,6 @@ class InstaPy:
                                                                             self.logger)
                             if self.commenting_approved:
                                 if temp_comments:
-                                    # Use clarifai related comments only!
                                     comments = temp_comments
                                 elif is_video:
                                     comments = (self.comments +
@@ -1505,20 +1430,6 @@ class InstaPy:
                             following = (random.randint(0, 100) <=
                                          self.follow_percentage)
 
-                            if self.use_clarifai and (following or commenting):
-                                try:
-                                    checked_img, temp_comments = (
-                                        check_image(self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                    )
-                                except Exception as err:
-                                    self.logger.error(
-                                        'Image check error: {}'.format(err))
-
                             # comments
                             if (self.do_comment and
                                 user_name not in self.dont_include and
@@ -1533,7 +1444,6 @@ class InstaPy:
                                                                               self.logger)
                                 if self.commenting_approved:
                                     if temp_comments:
-                                        # Use clarifai related comments only!
                                         comments = temp_comments
                                     elif is_video:
                                         comments = (self.comments +
@@ -1757,20 +1667,6 @@ class InstaPy:
                             commenting = random.randint(
                                 0, 100) <= self.comment_percentage
 
-                            if self.use_clarifai and (following or commenting):
-                                try:
-                                    checked_img, temp_comments = (
-                                        check_image(self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                    )
-                                except Exception as err:
-                                    self.logger.error(
-                                        'Image check error: {}'.format(err))
-
                             if (self.do_comment and
                                 user_name not in self.dont_include and
                                 checked_img and
@@ -1785,7 +1681,6 @@ class InstaPy:
                                                                   self.logger)
                                 if self.commenting_approved:
                                     if temp_comments:
-                                        # use clarifai related comments only!
                                         comments = temp_comments
                                     elif is_video:
                                         comments = (self.comments +
@@ -1997,19 +1892,6 @@ class InstaPy:
                                 checked_img = True
                                 temp_comments = []
 
-                                if self.use_clarifai and commenting:
-                                    try:
-                                        checked_img, temp_comments = (
-                                            check_image(self.browser,
-                                                        self.clarifai_api_key,
-                                                        self.clarifai_img_tags,
-                                                        self.clarifai_img_tags_skip,
-                                                        self.logger,
-                                                        self.clarifai_full_match))
-
-                                    except Exception as err:
-                                        self.logger.error(
-                                            'Image check error: {}'.format(err))
 
                                 if (self.do_comment and
                                      user_name not in self.dont_include and
@@ -2025,7 +1907,6 @@ class InstaPy:
                                                                        self.logger)
                                     if self.commenting_approved:
                                         if temp_comments:
-                                            # use clarifai related comments only!
                                             comments = temp_comments
 
                                         elif is_video:
@@ -2961,23 +2842,6 @@ class InstaPy:
                                     following = random.randint(
                                         0, 100) <= self.follow_percentage
 
-                                    if (self.use_clarifai and
-                                            (following or commenting)):
-                                        try:
-                                            checked_img, temp_comments = (
-                                                check_image(
-                                                    self.browser,
-                                                    self.clarifai_api_key,
-                                                    self.clarifai_img_tags,
-                                                    self.clarifai_img_tags_skip,
-                                                    self.logger,
-                                                    self.clarifai_full_match)
-                                            )
-                                        except Exception as err:
-                                            self.logger.error(
-                                                'Image check error:'
-                                                ' {}'.format(err))
-
                                     # commenting
                                     if (self.do_comment and
                                         user_name not in self.dont_include and
@@ -2992,8 +2856,6 @@ class InstaPy:
 
                                         if self.commenting_approved:
                                             if temp_comments:
-                                                # use clarifai related
-                                                # comments only!
                                                 comments = temp_comments
                                             elif is_video:
                                                 comments = (
@@ -3533,20 +3395,6 @@ class InstaPy:
                         following = (random.randint(0, 100) <=
                                      self.follow_percentage)
 
-                        if self.use_clarifai and (following or commenting):
-                            try:
-                                checked_img, temp_comments = (
-                                    check_image(self.browser,
-                                                self.clarifai_api_key,
-                                                self.clarifai_img_tags,
-                                                self.logger,
-                                                self.clarifai_full_match)
-                                )
-                            except Exception as err:
-                                self.logger.error(
-                                    'Image check error: {}'.format(err))
-
-
                         if (self.do_comment and
                             user_name not in self.dont_include and
                             checked_img and
@@ -3560,7 +3408,6 @@ class InstaPy:
                                                                           self.logger)
                             if self.commenting_approved:
                                 if temp_comments:
-                                    # Use clarifai related comments only!
                                     comments = temp_comments
                                 elif is_video:
                                     comments = (self.comments +

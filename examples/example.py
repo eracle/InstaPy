@@ -20,27 +20,6 @@ session.set_comments(['Great Video!'], media='Video')
 # default enabled=False, follows ~ every 10th user from the images
 session.set_do_follow(enabled=True, percentage=10)
 
-"""Image Check with Image tagging api"""
-# default enabled=False , enables the checking with the clarifai api (image tagging)
-# if secret and proj_id are not set, it will get the environment Variables
-# 'CLARIFAI_API_KEY'
-session.set_use_clarifai(enabled=True, api_key='xxx')
-#                                        ^
-# ^If specified once, you don't need to add them again
-
-session.set_use_clarifai(enabled=False)
-session.set_use_clarifai(enabled=True)  # <- will use the one from above
-
-# uses the clarifai api to check if the image contains nsfw content
-# Check out their homepage to see which tags there are -> won't comment on image
-# (you won't do this on every single image or the 5000 free checks are wasted very fast)
-session.clarifai_check_img_for(['nsfw'], comment=False)  # !if no tags are set, use_clarifai will be False
-
-# checks the image for keywords food and lunch, if found, sets the comments possible comments
-# to the given comments
-session.clarifai_check_img_for(['food', 'lunch'], comment=True, comments=['Tasty!', 'Yum!'])
-session.clarifai_check_img_for(['dog', 'cat', 'cute'], comment=True, comments=['Sweet!', 'Cutie!!!'])
-
 """Like util"""
 # completely ignore liking images from certain users
 session.set_ignore_users(['random_user', 'another_username'])

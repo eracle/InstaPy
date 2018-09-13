@@ -48,12 +48,3 @@ def test_set_selenium_local_session_supports_chromedriver_version(webdriver):
         'chromedriverVersion': '2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91)'}}
     InstaPy()
 
-
-@patch('instapy.instapy.load_follow_restriction')
-def test_set_use_clarifai_raises_on_windows(load_follow_restriction):
-    """windows not supported"""
-    instapy = InstaPy(selenium_local_session=False)
-    with patch('instapy.instapy.os') as os:
-        type(os).name = PropertyMock(return_value='nt')
-        with pytest.raises(InstaPyError):
-            instapy.set_use_clarifai()

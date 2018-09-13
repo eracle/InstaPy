@@ -75,7 +75,6 @@ Table of Contents
 * [Use a proxy](#use-a-proxy)
 * [Switching to Firefox](#switching-to-firefox)
 * [Emoji Support](#emoji-support)
-* [Clarifai ImageAPI](#clarifai-imageapi)
 * [Running on a Server](#running-on-a-server)
 * [Running on a Headless Browser](#running-on-a-headless-browser)
 * [Running Multiple Accounts](#running-multiple-accounts)
@@ -1253,57 +1252,6 @@ Emoji text codes are implemented using 2 different naming codes. A complete list
 > 1. You can use only Unicode characters with no more than 4 characters and you have to use the unicode code (e. g. ```\u1234```). You find a list of emoji with unicode codes on [Wikipedia](https://en.wikipedia.org/wiki/Emoji#Unicode_blocks), but there is also a list of working emoji in ```/assets```
 >
 > 2. You have to convert your comment to Unicode. This can safely be done by adding an u in front of the opening apostrophe: ```u'\u1234 some comment'```
-
-## Clarifai ImageAPI
-
-<img src="https://d1qb2nb5cznatu.cloudfront.net/startups/i/396673-2fb6e8026b393dddddc093c23d8cd866-medium_jpg.jpg?buster=1399901540" width="200" align="right">
-
-###### Note: Head over to [https://developer.clarifai.com/signup/](https://developer.clarifai.com/signup/) and create a free account, once you’re logged in go to [https://developer.clarifai.com/account/applications/](https://developer.clarifai.com/account/applications/) and create a new application. You can find the client ID and Secret there. You get 5000 API-calls free/month.
-
-If you want the script to get your CLARIFAI_API_KEY for your environment, you can do:
-
-```
-export CLARIFAI_API_KEY="<API KEY>"
-```
-### Example with Imagecontent handling
-
-```python
-session.set_do_comment(True, percentage=10)
-session.set_comments(['Cool!', 'Awesome!', 'Nice!'])
-session.set_use_clarifai(enabled=True)
-session.clarifai_check_img_for(['nsfw'])
-session.clarifai_check_img_for(['food', 'lunch', 'dinner'], comment=True, comments=['Tasty!', 'Nice!', 'Yum!'])
-
-session.end()
-```
-### Enabling Imagechecking
-
-```python
-# default enabled=False , enables the checking with the clarifai api (image
-# tagging) if secret and proj_id are not set, it will get the environment
-# variables 'CLARIFAI_API_KEY'
-
-session.set_use_clarifai(enabled=True, api_key='xxx')
-```
-### Filtering inappropriate images
-
-```python
-# uses the clarifai api to check if the image contains nsfw content
-# -> won't comment if image is nsfw
-
-session.clarifai_check_img_for(['nsfw'])
-```
-### Specialized comments for images with specific content
-
-```python
-# checks the image for keywords food and lunch, if both are found,
-# comments with the given comments. If full_match is False (default), it only
-# requires a single tag to match Clarifai results.
-
-session.clarifai_check_img_for(['food', 'lunch'], comment=True, comments=['Tasty!', 'Yum!'], full_match=True)
-```
-
-###### Check out [https://clarifai.com/demo](https://clarifai.com/demo) to see some of the available tags.</h6>
 
 ## Running on a Server
 

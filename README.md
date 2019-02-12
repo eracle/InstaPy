@@ -1,38 +1,167 @@
+> **Disclaimer**: Please Note that this is a research project. I am by no means responsible for any usage of this tool. Use on your own behalf. I'm also not responsible if your accounts get banned due to extensive use of this tool.
+
 <img src="https://i.imgur.com/sJzfZsL.jpg" width="150" align="right">
 
 # InstaPy
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/timgrossmann/InstaPy/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/timgrossmann/InstaPy/blob/master/LICENSE)
 [![built with Selenium](https://img.shields.io/badge/built%20with-Selenium-yellow.svg)](https://github.com/SeleniumHQ/selenium)
 [![built with Python3](https://img.shields.io/badge/built%20with-Python3-red.svg)](https://www.python.org/)
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://travis-ci.org/timgrossmann/InstaPy)
+[![Backers on Open Collective](https://opencollective.com/instapy/backers/badge.svg)](#backers)
 
-### Automation Script for “farming” Likes, Comments and Followers on Instagram
+### Tooling that automates your social media interactions to “farm” Likes, Comments, and Followers on Instagram
 Implemented in Python using the Selenium module.
 
-**Think this tool is worth supporting?**
-Head over to https://github.com/timgrossmann/InstaPy/wiki/How-to-Contribute to find out how you can help.
-**Become a part of InstaPy!**
-
 **Have an issue?**
-Head over to https://github.com/timgrossmann/InstaPy/wiki/Reporting-An-Issue to find out how to report this to us and get help.
+If you should encounter any issue, please first [search for similar issues](https://github.com/timgrossmann/InstaPy/issues) and only if you can't find any, create a new issue or use the [discord channel](https://discord.gg/FDETsht) for help.
 
-**Disclaimer**: Please Note that this is a research project. I am by no means responsible for any usage of this tool. Use on your own behalf. I’m also not responsible if your accounts get banned due to extensive use of this tool.
+#### Newsletter: [Sign Up for the Newsletter here!](http://eepurl.com/cZbV_v)
 
-#### Newsletter: [SignUp for the Newsletter here!](http://eepurl.com/cZbV_v)
+
+## **Installation**
+```elm
+pip install instapy
+```
+That's it 🍫☕
+
+<br />
+
+Now all you need is a **quickstart** script to start _InstaPy_ 🥳  
+
+<details>
+  <summary> <b>Choose a <b>quickstart</b> script of your choice from the <a href="https://github.com/InstaPy/instapy-quickstart">instapy-quickstart</a> repository to get started 🔎</b></summary>
+
+- Here is the easiest **quickstart** script you can use - [quickstart.py](https://github.com/InstaPy/instapy-quickstart/blob/master/quickstart.py)  
+- And here you can find lots of _sophisticated **quickstart** templates_ shared by the community! - [quickstart templates 📂](https://github.com/InstaPy/instapy-quickstart/tree/master/quickstart_templates)  
+
+<br /> 
+
+You can also copy and paste this basic **quickstart** into a new text file and save it as `.py` file.
+```python		
+""" Quickstart script for InstaPy usage """		
+# imports		
+from instapy import InstaPy		
+from instapy import smart_run		
+	
+# get an InstaPy session!		
+session = InstaPy()		
+	
+with smart_run(session):		
+    """ Activity flow """		
+    # general settings		
+    session.set_dont_include(["friend1", "friend2", "friend3"])		
+	
+    # activity		
+    session.like_by_tags(["natgeo"], amount=10)		
+```
+
+</details>
+
+<br />
+
+🛰 As you've downloaded a **quickstart** script into your computer, go ahead and run it in the command prompt as:
+```elm
+python quickstart.py --username abc --password 123
+```
+>**PRO**:  
+Read more about passing arguments from the command line interface in the section - [Pass arguments by CLI](#pass-arguments-by-cli).
+
+<br />
+
+##### 🚁 You can provide _username_ & _password_ inside the **quickstart** script, too!
+```python
+# inside quickstart script
+
+session = InstaPy(username="abc",    
+                  password="123")   
+```
+
+<br />
+
+🛸 Also, if you like to run _InstaPy_ in **background**, just enable the **headless** mode!
+```erlang
+python quickstart.py -u abc -p 123 --headless-browser
+```
+Or do it right inside the **quickstart** script.
+```python
+# inside quickstart script
+
+session = InstaPy(username="abc",    
+                  password="123",
+                  headless_browser=True)  
+```
+_Until you enable the **headless** mode, InstaPy will run in the **graphical** mode where you can watch the ongoing automation in your web browser_.
+
+
+> If you've used _InstaPy_ before installing it by **pip**, you have to move your _old_ data to the new **workspace** folder for once.
+[Read how to do this here](#migrating-your-data-to-the-workspace-folder).
+
+<br />
+
+#### **Update**
+```elm
+
+pip install instapy -U
+
+```
+
+#### **Install** a _**specific** version_
+```elm
+pip install instapy==0.1.1
+```
+
+#### **Uninstall**
+```elm
+pip uninstall instapy
+```
+
+<br />
+
+--- 
 
 ### Social
 
-#### [Slack Workspace](https://join.slack.com/t/instapy/shared_invite/enQtMjYzNTgwMDg3MDEyLTk2NWI0MjY2MTVjYmM2NjFlYjVmMmE0ZjU1OGQ0OWM2MTQwOTc1NTIyOGVhZDEwMTFkYzFmODE5ZWIxZjhjMTQ) | [InstaPy Twitter](https://twitter.com/InstaPy) | [My Twitter](https://twitter.com/timigrossmann) | [How it works (Medium)](https://medium.freecodecamp.com/my-open-source-instagram-bot-got-me-2-500-real-followers-for-5-in-server-costs-e40491358340) | [Check out the talk](https://youtu.be/4TmKFZy-ioQ) |
-[Listen to the "Talk Python to me"-Episode](https://talkpython.fm/episodes/show/142/automating-the-web-with-selenium-and-instapy) | [Support InstaPy!](https://www.paypal.me/supportInstaPy)
+#### [Twitter of InstaPy](https://twitter.com/InstaPy) | [Twitter of Tim](https://twitter.com/timigrossmann) | [How it works (Medium)](https://medium.freecodecamp.com/my-open-source-instagram-bot-got-me-2-500-real-followers-for-5-in-server-costs-e40491358340) |   
+[Talk about automating your Instagram](https://youtu.be/4TmKFZy-ioQ) | [Talk about doing Open-Source work](https://www.youtube.com/watch?v=A_UtST302Og&t=0s&list=PLa4P1NPX9hthXV-wko0xyxFpbhYZFkW7o) | [Listen to the "Talk Python to me"-Episode](https://talkpython.fm/episodes/show/142/automating-the-web-with-selenium-and-instapy)
 
-[![paypal](https://img.shields.io/badge/-PayPal-blue.svg)](https://www.paypal.me/supportInstaPy)
+### Do you need help ?
 
-Table of Contents
-=================
+<a href="https://discord.gg/FDETsht">
+  <img hspace="3" alt="Discord channel" src="https://camo.githubusercontent.com/e4a739df27356a78e9cae2e2dda642d118567e7c/68747470733a2f2f737465616d63646e2d612e616b616d616968642e6e65742f737465616d636f6d6d756e6974792f7075626c69632f696d616765732f636c616e732f32373039303534312f386464356339303766326130656563623733646336613437373666633961323538373865626364642e706e67" width=214/>
+</a>
 
-* [Getting Started](#getting-started)
-  * [Basic Installation](#basic-installation)
-  * [Basic Setup](#basic-setup)
+### Do you want to support us ?
+
+<a href="https://opencollective.com/instapy/donate" target="_blank">
+  <img align="left" hspace="10" src="https://opencollective.com/instapy/contribute/button@2x.png?color=blue" width=300 />
+</a>
+
+<a href="https://www.paypal.me/supportInstaPy">
+  <img hspace="14" alt="paypalme" src="http://codeinpython.com/tutorials/wp-content/uploads/2017/09/PayPal-ME-300x300.jpg.png" width=100 />
+</a>
+
+**Help build InstaPy!**      
+Check out this short guide on [how to start contributing!](https://github.com/InstaPy/instapy-wiki/blob/master/CONTRIBUTORS.md).
+
+---
+
+### Guides
+
+#### Video tutorials:
+
+> The currently available video tutorials all still use the old version of InstaPy, please use the documentation until we released new videos for the up to date installation instructions
+Sorry for the inconveniences
+
+#### Written Guides:
+**[How to Ubuntu (64-Bit)](./docs/How_To_DO_Ubuntu_on_Digital_Ocean.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**
+
+**[How to RaspberryPi](./docs/How_to_Raspberry.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**
+
+
+# Documentation
+
+### Table of Contents
+* [Advanced Installation](#advanced-installation)
 * [InstaPy Available Features](#instapy-available-features)
   * [Commenting](#commenting)
   * [Following](#following)
@@ -43,19 +172,26 @@ Table of Contents
   * [Follow the likers of photos of users](#follow-the-likers-of-photos-of-users)  
   * [Follow the commenters of photos of users](#follow-the-commenters-of-photos-of-users)  
   * [Interact with specific users](#interact-with-specific-users)
+  * [Interact with specific users' tagged posts](#interact-with-specific-users-tagged-posts)
   * [Interact with users that someone else is following](#interact-with-users-that-someone-else-is-following)
   * [Interact with someone else's followers](#interact-with-someone-elses-followers)
   * [Interact on posts at given URLs](#interact-on-posts-at-given-urls)
+  * [Interact by Comments](#interact-by-comments)
   * [Unfollowing](#unfollowing)
+  * [Remove outgoing follow requests](#remove-outgoing-follow-requests)
   * [Don't unfollow active users](#dont-unfollow-active-users)
   * [Interactions based on the number of followers and/or following a user has](#interactions-based-on-the-number-of-followers-andor-following-a-user-has)
+  * [Interactions based on the number of posts a user has](#interactions-based-on-the-number-of-posts-a-user-has)
+  * [Skipping user for private account, no profile picture, business account](#skipping-user-for-private-account-no-profile-picture-business-account)
   * [Liking based on the number of existing likes a post has](#liking-based-on-the-number-of-existing-likes-a-post-has)
   * [Commenting based on the number of existing comments a post has](#commenting-based-on-the-number-of-existing-comments-a-post-has)
+  * [Commenting based on mandatory words in the description or first comment](#commenting-based-on-mandatory-words-in-the-description-or-first-comment)
   * [Comment by Locations](#comment-by-locations)
   * [Like by Locations](#like-by-locations)
   * [Like by Tags](#like-by-tags)
   * [Like by Feeds](#like-by-feeds)
   * [Mandatory Words](#mandatory-words)
+  * [Mandatory Language](#mandatory-language)
   * [Restricting Likes](#restricting-likes)
   * [Ignoring Users](#ignoring-users)
   * [Ignoring Restrictions](#ignoring-restrictions)
@@ -72,6 +208,9 @@ Table of Contents
   * [Pick Nonfollowers of a user](#pick-nonfollowers-of-a-user)
   * [Pick Fans of a user](#pick-fans-of-a-user)
   * [Pick Mutual Following of a user](#pick-mutual-following-of-a-user)
+* [Text Analytics](#text-analytics)
+  *  [Yandex Translate API](#yandex-translate-api)
+  *  [MeaningCloud Sentiment Analysis API](#meaningcloud-sentiment-analysis-api)
 * [Use a proxy](#use-a-proxy)
 * [Switching to Firefox](#switching-to-firefox)
 * [Emoji Support](#emoji-support)
@@ -79,104 +218,215 @@ Table of Contents
 * [Running on a Headless Browser](#running-on-a-headless-browser)
 * [Running Multiple Accounts](#running-multiple-accounts)
 * [Running with Docker microservices manual](#running-with-docker-microservices-manual)
-* [Running all-in-one with Docker (obsolete)](#running-all-in-one-with-docker-obsolete)
+* [Running all-in-one with Docker (legacy)](#running-all-in-one-with-docker-legacy)
+* [Running all with Docker Compose using config file](./docs/How_to_Docker_Compose.md)
 * [Automate InstaPy](#automate-instapy)
   * [Windows Task Scheduler](#windows-task-scheduler)
   * [cron](#cron)
   * [Schedule](#schedule)
-* [Extra Information](#extra-information)  
+* [Workspace folders](#workspace-folders)
+* [Extensions](#extensions)
+* [Extra Information](#extra-information)
+  * [Custom chromedriver version](#custom-chromedriver-version)
+  * [Using one of the templates](#using-one-of-the-templates)
+  * [How not to be banned](#how-not-to-be-banned)
   * [Simulation](#simulation)
+  * [Disable Image Loading](#disable-image-loading)
+  * [Using Multiple Chromedrivers](#using-multiple-chromedrivers)
+  * [Changing DB or Chromedriver locations](#changing-db-or-chromedriver-locations)
+  * [Custom action delays](#custom-action-delays)
+  * [How to avoid _python_ & **pip** confusion](#how-to-avoid-python--pip-confusion)
+  * [Pass arguments by CLI](#pass-arguments-by-cli)
 
-## Getting started
 
-### Video tutorials:
-**[Setting up InstaPy for OSX](https://www.youtube.com/watch?v=I025CEBJCvQ)**
+### Advanced Installation
+#### 🛠 Install or update to the unreleased version  
+For example, there is a **bug** and its **fix** is _merged to the repo_ but a newer version of _InstaPy_ [_containing_ that **fix**] is not yet released to _PyPI_ to be able to be _installed_ or _updated_ by **pip**.  
 
-**[Setting up InstaPy at Digital Ocean (for Debian)](https://www.youtube.com/watch?v=2Ci-hXU1IEY)**
+Then, you can do this to install the **actual state** of the _repo_ 😋
+```erlang
+pip install -I https://github.com/timgrossmann/InstaPy/zipball/master
+```
 
-### Guides:
-**[How to Ubuntu (64-Bit)](./docs/How_To_DO_Ubuntu_on_Digital_Ocean.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**
+Worths to note that, this installation option does not require _Git_ to be installed, too.  
+`-I` flag in there is used to _ignore the installed_ packages and _reinstall_ them instead.  
 
-**[How to RaspberryPi](./docs/How_to_Raspberry.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**
+<details>
+  <summary>
+    <b>
+      Learn why <code>-I</code> flag is required 🔎
+    </b>
+  </summary>
 
-**[How to Windows](./docs/How_to_Windows.md)**
+Since _InstaPy_'s version is not yet being incremented which is the reason you're installing it from a _zipball_, then if you don't use the `-I` flag, **pip** will complain saying,  
+- "_Hey, I have already installed the x.y.z version! Skipping installation..._"  
 
-### Basic Installation:
+But obviously, even though the version is the same, _zipball_ has the current state of the repository.  
+That's why you will be able to install the actual state of the repo using the `-I` flag.
 
-```bash
-1. git clone https://github.com/timgrossmann/InstaPy.git
-2. cd InstaPy
-3. pip install .
+</details>
+
+<br />
+
+>**PRO** Tip:  
+  Read the section - [How to avoid _python_ & **pip** confusion](#how-to-avoid-python--pip-confusion) 😄
+
+<br />
+
+#### ⚗ Install manually and manage using advanced git commands
+###### For those who want to tweak or enhance _InstaPy_.
+
+**1**. Clone _InstaPy_ repository into your computer
+```erlang
+git clone https://github.com/timgrossmann/InstaPy.git
+```
+
+**2**. Navigate to the _InstaPy_ project root directory
+```erlang
+cd InstaPy
+```
+
+**3**. Install the _local_ **instapy** package
+```erlang
+pip install -e .
+```
+<details>
+  <summary>
+    <b>
+      Learn why <code>-e</code> flag is required 🔎
+    </b>
+  </summary>
+
+Since you're gonna install the local version of _InstaPy_ you'll probably change its code per your need which is the reason you do an advanced installation from a _Git_ source, then if you don't use the `-e` flag, you'll have to install that local package by **pip** every time after making a change.  
+
+But fortunately, `-e` flag comes to help;  
+`-e` means _editable_ install, so that after editing files you don't need to re-install the package again since it will always refer to the edited files cos with the _editable_ install, it just **links** the project's location to **pip**'s install location _rather than_ adding them to **pip** location separately..
+<br />
+</details>
 or
-3. python setup.py install
-```
-4. Download ```chromedriver``` for your system [from here](https://sites.google.com/a/chromium.org/chromedriver/downloads). Extract the .zip file and put it in ```/assets``` folder.
 
-### Preferred Installation:
-
-The best way to install InstaPy is to create a virtualenv, install InstaPy there and run it from a separate file:
-
-```bash
-1. virtualenv venv
-2. source venv/bin/activate
-3. pip install git+https://github.com/timgrossmann/InstaPy.git
+```erlang
+python setup.py install
 ```
 
-If you're not familiar with virtualenv, please [read about it here](https://virtualenv.pypa.io/en/stable/) and use it to your advantage.
-In essence, this is be the _only_ Python library you should install as root (e.g., with sudo). All other Python libraries should be inside a virtualenv.
-Now copy/paste the `quickstart.py` Python code below and run your first InstaPy script. Remember to run it with Python from the virtualenv, so from `venv/bin/python`. To make sure which Python is used, run `which python`, it will tell you which Python is 'active'.
-Running `source venv/bin/activate` will activate the correct Python to run InstaPy. To exit an activated virtualenv run `deactivate'.
+<br />
 
-### Set it up yourself with this Basic Setup
+#### ⛑ Install into a Virtual Environment
 
-Basic setup is a good way to test the tool. At project root folder open `quickstart.py` and update with your username and password.
+###### The best way to install _InstaPy_ is to create a virtual environment and install _InstaPy_ there, then, run it from a separate file.
 
-```python
-from instapy import InstaPy
+<details>
+  <summary>
+    <b>
+      Guide for <b>Pythons</b> >= 3.6 🔎
+    </b>
+  </summary>
 
-insta_username = ''
-insta_password = ''
+##### Mac/Linux
 
-# if you want to run this script on a server,
-# simply add nogui=True to the InstaPy() constructor
-session = InstaPy(username=insta_username, password=insta_password)
-session.login()
-
-# set up all the settings
-session.set_relationship_bounds(enabled=True,
-				 potency_ratio=-1.21,
-				  delimit_by_numbers=True,
-				   max_followers=4590,
-				    max_following=5555,
-				     min_followers=45,
-				      min_following=77)
-session.set_do_comment(True, percentage=10)
-session.set_comments(['aMEIzing!', 'So much fun!!', 'Nicey!'])
-session.set_dont_include(['friend1', 'friend2', 'friend3'])
-session.set_dont_like(['pizza', 'girl'])
-
-# do the actual liking
-session.like_by_tags(['natgeo', 'world'], amount=100)
-
-# end the bot session
-session.end()
+**1**. Clone _InstaPy_ repository into your computer
+```erlang
+git clone https://github.com/timgrossmann/InstaPy.git
 ```
 
-Execute it:
-
-```bash
-$ python quickstart.py
+**2**. Navigate to the _InstaPy_ project root directory
+```erlang
+cd InstaPy
 ```
 
-### Or use our GUI
+**3**. Make a virtual environment
+```erlang
+python3 -m venv venv
+```
 
-[1. Official Cross Platform GUI](https://github.com/ahmadudin/electron-instaPy-GUI)
+**4**. Activate the virtual environment
+```erlang
+source venv/bin/activate
+```
 
-[<img src="https://raw.githubusercontent.com/ahmadudin/ahmadudin.github.io/master/assets/images/screencapture1.PNG" width="400" />](https://github.com/ahmadudin/electron-instaPy-GUI)
+**5**. Install the _local_ **instapy** package
+```erlang
+pip install -e .
+```
 
-[2. Session scheduling with Telegram](https://github.com/Tkd-Alex/Telegram-InstaPy-Scheduling)
 
-[3. InstaPy-Light, a light version of InstaPy](https://github.com/converge/InstaPy-Light)
+
+##### Windows
+
+**1**. Clone _InstaPy_ repository into your computer
+```erlang
+git clone https://github.com/timgrossmann/InstaPy.git
+```
+
+**2**. Navigate to the _InstaPy_ project root directory
+```erlang
+cd InstaPy
+```
+
+**3**. Make a virtual environment
+```erlang
+python3 -m venv venv
+```
+
+**4**. Activate the virtual environment
+```erlang
+venv\Scripts\activate.bat
+```
+
+**5**. Install the _local_ **instapy** package
+```erlang
+pip install -e .
+```
+
+
+If you're not _familiar_ with **venv**, please [read about it here](https://docs.python.org/3/library/venv.html) and use it to your advantage;    
+
+- Running `source venv/bin/activate` will _activate_ the correct _python_ to run _InstaPy_. To exit an activated **venv** run `deactivate`.  
+- Now, copy & paste the **quickstart.py** _python_ code below and then run your first _InstaPy_ script.  
+  Remember to run it with _python_ from the **venv**.  
+- To make sure which _python_ is used, run `which python` which will tell you the active version of _python_.  
+- Whenever you run the script, the virtual environment must be _active_.
+
+</details>
+
+
+<details>
+  <summary>
+    <b>
+      Guide for <b>Pythons</b> < 3.6 🔎
+    </b>
+  </summary>
+
+**1**. Make a virtual environment
+```erlang
+virtualenv venv
+```
+
+**2**. Activate the virtual environment
+```erlang
+source venv/bin/activate
+```
+
+**3**. Install the **instapy** package from _Git_ by using **pip**
+```erlang
+pip install git+https://github.com/timgrossmann/InstaPy.git
+```
+
+
+If you're not _familiar_ with **virtualenv**, please [read about it here](https://virtualenv.pypa.io/en/stable/) and use it to your advantage;  
+
+In essence,    
+ - This is be the **only** _python_ library you should install as `root` (_e.g., with `sudo`_).  
+ - All other _python_ libraries should be inside a **virtualenv**.  
+ - Running `source venv/bin/activate` will activate the correct _python_ to run _InstaPy_.  
+  And to exit an activated **virtualenv** run `deactivate`.  
+ - Now, copy & paste the **quickstart.py** _python_ code below and run your first _InstaPy_ script.  
+ Remember to run it with _python_ from the **virtualenv**, so from **venv/bin/python**.  
+ - To make sure which _python_ is used, run `which python` which would tell you the active version of _python_.
+
+</details>
+
+<br />
 
 ## InstaPy Available Features
 
@@ -298,7 +548,7 @@ session.follow_by_tags(['tag1', 'tag2'], amount=10)
 
 ##### This will follow the people those liked photos of given list of users   
 ```python
-session.follow_likers (['user1' , 'user2'], photos_grab_amount = 2, follow_likers_per_photo = 3, randomize=True, sleep_delay=600, interact=False)
+session.follow_likers(['user1' , 'user2'], photos_grab_amount = 2, follow_likers_per_photo = 3, randomize=True, sleep_delay=600, interact=False)
 ```   
 _in this case 2 random photos from each given user will be analyzed and 3 people who liked them will be followed, so 6 follows in total_  
 The `usernames` can be any list   
@@ -313,7 +563,7 @@ session.set_user_interact(amount=2,
 				 percentage=70,
                   randomize=True,
                    media='Photo')
-session.follow_likers (['user1' , 'user2'], photos_grab_amount = 2, follow_likers_per_photo = 3, randomize=True, sleep_delay=600, interact=True)
+session.follow_likers(['user1' , 'user2'], photos_grab_amount = 2, follow_likers_per_photo = 3, randomize=True, sleep_delay=600, interact=True)
 ```
 
 
@@ -352,6 +602,20 @@ session.set_do_comment(enabled=True, percentage=80)
 session.set_do_like(True, percentage=70)
 session.interact_by_users(['user1', 'user2', 'user3'], amount=5, randomize=True, media='Photo')
 ```
+
+### Interact with specific users' tagged posts
+
+```python
+# Interact with specific users' tagged posts
+# set_do_like, set_do_comment, set_do_follow are applicable
+
+session.set_do_follow(enabled=False, percentage=50)
+session.set_comments(["Cool", "Super!"])
+session.set_do_comment(enabled=True, percentage=80)
+session.set_do_like(True, percentage=70)
+session.interact_by_users_tagged_posts(['user1', 'user2', 'user3'], amount=5, randomize=True, media='Photo')
+```
+
 
 ### Interact with users that someone else is following
 
@@ -423,6 +687,119 @@ Use it if you like to also _interact the post owner_ **after** doing interaction
 
 
 
+### Interact by Comments
+###### Like comments on posts, reply to them and then interact by the users whose comment was liked on the post
+
+```python
+session.interact_by_comments(usernames=["somebody", "other buddy"],
+                             posts_amount=10,
+                             comments_per_post=5,
+                             reply=True,
+                             interact=True,
+                             randomize=True,
+                             media="Photo")
+```
+#### Parameters
+`usernames`
+: A list containing the _usernames_ of users on WHOSE **posts'** _comments will be interacted_;  
+
+`posts_amount`
+: Number of the posts to get from **each user** for interacting by comments;  
+
+`comments_per_post`
+: Choose how many comments to interact (_like and then reply_) on **each post**;  
+
+`reply`
+: Choose if it **should reply** to comments;  
+
+`interact`
+: Use if you also like to _interact the commenters_ **after** finishing liking (_and then replying to_) comments on the **post**;  
+
+`randomize`
+: Shuffles the **order** of the **_posts_** from users' feed and **_comments_** in the given post;  
+
+`media`
+: Choose the **type of** media to be interacted - _`"Photo"`_ for photos, _`"Video"`_ for videos, `None` for any media;
+
+
+#### Usage
+**To use**, set **replying** and **interaction** configuration(s)
+```python
+session.set_do_reply_to_comments(enabled=True, percentage=14)
+session.set_comment_replies(replies=[u"😎😎😎", u"😁😁😁😁😁😁😁💪🏼", u"😋🎉", "😀🍬", u"😂😂😂👈🏼👏🏼👏🏼", u"🙂🙋🏼‍♂️🚀🎊🎊🎊", u"😁😁😁", u"😂",  u"🎉",  u"😎", u"🤓🤓🤓🤓🤓", u"👏🏼😉"],
+                            media="Photo")
+
+session.set_user_interact(amount=2, percentage=70, randomize=False, media="Photo")
+# also configure [at least] liking to be used while interacting with the commenters ...
+session.set_do_like(enabled=True, percentage=94)
+
+# start the feature
+session.interact_by_comments(usernames=["somebody", "other.buddy"], posts_amount=10, comments_per_post=5, reply=True, interact=True, randomize=True, media="Photo")
+```
+**Note**: To be able to reply to comments, you have to **turn on** _text analytics_- [**Yandex**](#yandex-translate-api) & [**MeaningCloud**](#meaningcloud-sentiment-analysis-api).  
+So that they will analyze the content of comments and if it is appropriate, will send a reply to the comment.  
+_To configure those text analytics, see the usage in their sections_.
+
+There are **3** **COMBINATIONS** _available_ to use regarding _text analysis_:  
+**a**-) ONLY **Sentiment Analysis**;  
+_MeaningCloud must be turned on and Yandex must be enabled with a valid API key_,
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P")
+session.set_use_yandex(enabled=True, API_key='')
+```
+**b**-) ONLY **Language Match**;
+_Yandex must be turned on_,
+```python
+session.set_use_yandex(enabled=True, API_key='', match_language=False, language_code="en")
+```
+**c**-) BOTH **Sentiment Analysis** and **Language Match**;
+_MeaningCloud and Yandex must be turned on_,  
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P")
+session.set_use_yandex(enabled=True, API_key='', match_language=True, language_code="en")
+```
+
+If you have **followed** any of those 3 _text analysis_ combinations:  
+It will first _analyze comments' content_ and if it _is appropriate_, then it will _first_ like, _then_ will reply to it.  
+All those inappropriate comments will neither be liked, nor replied to.  
+
+If you have **not followed** any of those 3 _text analysis_ combinations OR **misconfigured** them:  
+Comments' content will _not be able to be analyzed_ and that's why _no any comments will be_ replied.  
+_Yet_, it will like _all of the comments_ that are available.  
+
+In conclusion, the whole block SHOULD look like this,  
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P")
+session.set_use_yandex(enabled=True, API_key='', match_language=True, language_code="en")
+
+session.set_do_comment(enabled=True, percentage=14)
+session.set_reply_comments(replies=[u"😎😎😎", u"😁😁😁😁😁😁😁💪🏼"], media="Photo")
+
+session.set_user_interact(amount=2, percentage=70, randomize=False, media="Photo")
+session.set_do_like(enabled=True, percentage=100)
+
+session.interact_by_comments(usernames=["somebody", "other.buddy"], posts_amount=10, comments_per_post=5, reply=True, interact=True, randomize=True, media="Photo")
+```
+
+#### Extras
++ comments from the poster are ignored (_those comments are mostly poster's replies_);  
++ owner's (_logged in user_) comments are also ignored;  
++ if the commenter is in _blacklist_ or `ignored_users` list, that comment will also be ignored;  
++ it will take only one comment from each unique commenter;  
++ as if there are any usable comments, it will first **like the post itself** before _interacting by comments_ cos liking comments and replying to them without liking the post can look spammy;    
++ it will reply to a comment only after liking it;  
++ it will not send the same reply again on overall posts per each username in the list provided by you;  
+
+#### PROs
++ you can use this feature to **auto-like** comments, **auto-reply** to them on your _own_ posts;  
++ else than interacting by the comments in your _own_ posts, you can use this feature to like lots of comments from _other users'_ posts, reply to some of _them_ and interact by those users just after _liking_ & _replying_ to their comments;  
+
+#### CONs
++ liking a comment doesn't fill up your like quota, but replying to a comment does it to the comment quota. Try to compensate it in your style and do not overuse;  
++ using auto-reply capability of this feature can result in unwanted miscommunication between you and the commenter IN CASE OF you do not make an efficient use of text analytics;  
+
+
+
 ### Unfollowing
 ###### Unfollows the accounts you're following  
 _It will unfollow ~`10` accounts and sleep for ~`10` minutes and then will continue to unfollow..._
@@ -441,7 +818,7 @@ _if **track** is `"nonfollowers"`, it will unfollow all of the users in a given 
 custom_list = ["user_1", "user_2", "user_49", "user332", "user50921", "user_n"]
 session.unfollow_users(amount=84, customList=(True, custom_list, "nonfollowers"), style="RANDOM", unfollow_after=55*60*60, sleep_delay=600)
 ```
-* **PRO**: `customList` method can any kind of _iterable container_, such as `list`, `tuple` or `set`.
+* **PRO**: `customList` method can take any kind of _iterable container_, such as `list`, `tuple` or `set`.
 
 **2** - Unfollow the users **WHO** was _followed by `InstaPy`_ (_has `2` **track**s- `"all"` and `"nonfollowers"`_):  
 _again, if you like to unfollow **all of the users** followed by InstaPy, use the **track**- `"all"`_;
@@ -502,6 +879,15 @@ _here the unfollow method- **alFollowing** is used_
 
 
 
+### Remove outgoing follow requests
+
+```python
+# Remove outgoing unapproved follow requests from private accounts
+
+session.remove_follow_requests(amount=200, sleep_delay=600)
+```
+
+
 ### Don't unfollow active users
 
 ```python
@@ -520,7 +906,9 @@ session.set_relationship_bounds(enabled=True,
 				   max_followers=8500,
 				    max_following=4490,
 				     min_followers=100,
-				      min_following=56)
+				      min_following=56,
+				       min_posts=10,
+                max_posts=1000)
 ```
 Use `enabled=True` to **activate** this feature, and `enabled=False` to **deactivate** it, _any time_  
 `delimit_by_numbers` is used to **activate** & **deactivate** the usage of max & min values  
@@ -535,28 +923,114 @@ _**find** desired_ `potency_ratio` _with this formula_: `potency_ratio` == **fol
 >_**e.g.**_, target user has _`2000` followers_ & _`3000` following_ and you set `potency_ratio = -1.7`.  
 **Now** it _will **not** interact_ with this user, **cos** the user's **relationship ratio** is `3000/2000==1.5` and `1.5` is **below** _desired_ `potency_ratio` _of `1.7`_ (_**note that**, negative `-` sign is only used to determine your style, nothing more_)
 
-
 ###### There are **3** **COMBINATIONS** _available_ to use:
 * **1**. You can use `potency_ratio` **or not** (**e.g.**, `potency_ratio=None`, `delimit_by_numbers=True`) - _will decide only by your **pre-defined** max & min values regardless of the_ `potency_ratio`
 ```python
-session.set_relationship_bounds (enabled=True, potency_ratio=None, delimit_by_numbers=True, max_followers=22668, max_following=10200, min_followers=400, min_following=240)
+session.set_relationship_bounds(enabled=True, potency_ratio=None, delimit_by_numbers=True, max_followers=22668, max_following=10200, min_followers=400, min_following=240)
 ```
 * **2**. You can use **only** `potency_ratio` (**e.g.**, `potency_ratio=-1.5`, `delimit_by_numbers=False`) - _will decide per_ `potency_ratio` _regardless of the **pre-defined** max & min values_
 ```python
-session.set_relationship_bounds (enabled=True, potency_ratio=-1.5, delimit_by_numbers=False, max_followers=400701, max_following=90004, min_followers=963, min_following=2310)
+session.set_relationship_bounds(enabled=True, potency_ratio=-1.5, delimit_by_numbers=False, max_followers=400701, max_following=90004, min_followers=963, min_following=2310)
 ```
 > apparently, _once_ `delimit_by_numbers` gets `False` value, max & min values _do not matter_
 * **3**. You can use both `potency_ratio` and **pre-defined** max & min values **together** (**e.g.**, `potency_ratio=2.35`, `delimit_by_numbers=True`) - _will decide per_ `potency_ratio` _& your **pre-defined** max & min values_
 ```python
-session.set_relationship_bounds (enabled=True, potency_ratio=2.35, delimit_by_numbers=True, max_followers=10005, max_following=24200, min_followers=77, min_following=500)
+session.set_relationship_bounds(enabled=True, potency_ratio=2.35, delimit_by_numbers=True, max_followers=10005, max_following=24200, min_followers=77, min_following=500)
 ```
 
 > **All** of the **4** max & min values are _able to **freely** operate_, **e.g.**, you may want to _**only** delimit_ `max_followers` and `min_following` (**e.g.**, `max_followers=52639`, `max_following=None`, `min_followers=None`, `min_following=2240`)
 ```python
-session.set_relationship_bounds (enabled=True, potency_ratio=-1.44, delimit_by_numbers=True, max_followers=52639, max_following=None, min_followers=None, min_following=2240)
-```  
+session.set_relationship_bounds(enabled=True, potency_ratio=-1.44, delimit_by_numbers=True, max_followers=52639, max_following=None, min_followers=None, min_following=2240)
+```
+### Interactions based on the number of posts a user has
+#### This is used to check number of posts of a user and skip if they aren't in the boundaries provided
+```python
+session.set_relationship_bounds(min_posts=10,
+                                 max_posts=1000)
+```
+Users that have more than 1000 posts or less than 10 will be discarded
+
+**N.B.:** It is up to the user to check that `min_posts < max_posts`
+
+You can also set only one parameter at a time:
+```python
+session.set_relationship_bounds(max_posts=1000)
+```
+
+Will skip only users that have more than 1000 posts in their feed
 
 
+### Skipping user for private account, no profile picture, business account
+
+#### This is used to skip users with certain condition
+```python
+session.set_skip_users(skip_private=True,
+                       private_percentage=100,
+                       skip_no_profile_pic=False,
+                       no_profile_pic_percentage=100,
+                       skip_business=False,
+                       business_percentage=100,
+                       skip_business_categories=[],
+                       dont_skip_business_categories=[])
+```
+##### Skip private account
+**This is done by default**
+```python
+session.set_skip_users(skip_private=True,
+                       private_percentage=100)
+```
+Will skip users that have private account, even if are followed by running account.
+You can set a percentage of skipping:
+    _private_percentage_= 100 always skip private users
+    _private_percentage_= 0 never skip private users (so set skip_private=False)
+
+##### Skip users that don't have profile picture
+
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+                       no_profile_pic_percentage=100)
+```
+Will skip users that haven't uploaded yet a profile picture
+You can set a percentage of skipping:
+    _no_profile_pic_percentage_= 100 always skip users without profile picture
+    _no_profile_pic_percentage_= 0 never skip users without profile picture (so set _skip_no_profile_pic_=False)
+
+##### Skip users that have business account
+
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+		               skip_business=True,
+		               business_percentage=100)
+```
+This will skip all users that have business account activated.
+You can set a percentage of skipping:
+    _business_percentage_= 100 always skip business users
+    _business_percentage_= 0 never skip business users (so set _skip_business_=False)
+
+**N.B.:** This _business_percentage_ parameter works only if no _skip_business_categories_ or _dont_skip_business_categories_ are provided!
+
+###### Skip only users that have certain business account
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+		       skip_business=True,
+		       skip_business_categories=['Creators & Celebrities'])
+```
+This will skip all business accounts that have category in given list
+**N.B.** In _skip_business_categories_ you can add more than one category
+###### Skip all business accounts, except from list given
+```python
+session.set_skip_users(skip_private=True,
+                       skip_no_profile_pic=True,
+		       skip_business=True,
+		       dont_skip_business_categories=['Creators & Celebrities'])
+```
+This will skip all business accounts except the ones that have a category that matches one item in the list of _dont_skip_business_categories_
+**N.B.** If both _dont_skip_business_categories_ and _skip_business_categories_, InstaPy will skip only business accounts in the list given from _skip_business_categories_.
+
+> [A list of all availlable business categories can be found here](./assets/business_categories.md)
 
 ### Liking based on the number of existing likes a post has
 
@@ -591,8 +1065,10 @@ session.set_delimit_commenting(enabled=True, max=32, min=0)
 Use `enabled=True` to **activate** and `enabled=False` to **deactivate** it, _any time_  
 `max` is the maximum number of comments to compare  
 `min` is the minimum number of comments to compare
-> You can use **both** _max_ & _min_ values OR **one of them** _as you desire_, just **put** the value of `None` _to the one_ you **don't want to** check for., _e.g._,
+> You can use **both** _max_ & _min_ values OR **one of them** _as you desire_, just **leave** it out or **put** it to `None` _to the one_ you **don't want to** check for., _e.g._,
 ```python
+session.set_delimit_commenting(enabled=True, min=4)
+# or
 session.set_delimit_commenting(enabled=True, max=None, min=4)
 ```
 _at this configuration above, it **will not** check number of the existing comments against **maximum** value_
@@ -604,7 +1080,16 @@ session.set_delimit_commenting(enabled=True, max=70, min=5)
 _**Now**, if a post has more comments than the maximum value of `70`, then it will not comment on that post,
 **similarly**, if that post has less comments than the minimum value of `5`, then it will not comment on that post..._
 
+### Commenting based on mandatory words in the description or first comment
 
+##### This is used to check the description of the post and the first comment of the post (some users only put tags in the comments instead of the post description) for the occurence of mandatory words before commenting. If none of the mandatory words is present, the post will not be commented.
+
+This feature is helpful when you want to comment only on specific tags.
+
+```python
+session.set_delimit_commenting(enabled=True, comments_mandatory_words=['cat', 'dog'])
+```
+> This will only comment on posts that contain either cat or dog in the post description or first comment.
 
 ### Comment by Locations
 
@@ -707,8 +1192,18 @@ session.like_by_tags(amount=10, use_smart_hashtags=True)
 session.set_mandatory_words(['#food', '#instafood'])
 ```
 
-`.set_mandatory_words` searches the description and owner comments for words and
-will like the image if **all** of those words are in there
+`.set_mandatory_words` searches the description, location and owner comments for words and
+will like the image if **any** of those words are in there
+
+### Mandatory Language
+
+```python
+session.set_mandatory_language(enabled=True, character_set='LATIN')
+```
+
+`.set_mandatory_language` restrict the interactions, liking and following if any character of the description is outside of the character set selected (the location is not included and non-alphabetic characters are ignored). For example if you choose `LATIN`, any character in Cyrillic will flag the post as inappropriate.
+
+* Available character sets: `LATIN`,  `GREEK`, `CYRILLIC`, `ARABIC`, `HEBREW`, `CJK`, `HANGUL`, `HIRAGANA`, `KATAKANA` and `THAI`
 
 ### Restricting Likes
 
@@ -774,6 +1269,11 @@ email, and you will be prompted to enter the security code sent to your email.
 It will login to your account, now you can set bypass_suspicious_attempt to False
 ```bypass_suspicious_attempt=False``` and InstaPy will quickly login using cookies.
 
+If you want to bypass suspicious login attempt with your phone number, set `bypass_with_mobile` to `True`
+
+```python
+InstaPy(username=insta_username, password=insta_password, bypass_suspicious_attempt=True, bypass_with_mobile=True)
+```
 
 
 ### Quota Supervisor
@@ -807,8 +1307,8 @@ _Once_ likes **reach** peak, it will **jump** every other like, _yet_, **will do
 
 **Notice**: `peak_likes=(50)` will not work, use `peak_likes=(50, None)` to supervise **hourly** peak and `peak_likes=(None, 50)` for **daily** peak.  
 >_Same **form**_ **applies** to **all** actions. Just specify the peaks in desired intervals- **hourly** or **daily** you want to _supervise_.
- 
-   
+
+
 `sleep_after`: is used to put **InstaPy** to _sleep_ **after reaching peak** _rather than_ **jumping the action** (_or exiting- **for** server calls_)  
 _Any action_ can be included `["likes", "comments", "follows", "unfollows", "server_calls"]`.  
 _As if_ you want to put _sleep_ **only after** reaching **hourly** like peak, put `"likes_h"` **OR** put `"likes_d"` for _sleeping_ **only after** reaching **daily** like peak.  
@@ -842,7 +1342,7 @@ session.set_quota_supervisor(enabled=True, peak_comments=(21, 240))
     + **wants** the program to **sleep after** reaching **hourly** _server calls_ peak: **adds** `"server_calls_h"` into `sleep_after` parameter
     + **wants** the program to **wake up** _a little bit later_ than real sleep time [once reaches the peaks]: **uses** `sleepyhead=True` parameter
 ```python
-session.set_quota_supervisor(enabled=True, peak_server_calls=(490, None) sleep_after=["server_calls_h"], sleepyhead=True)
+session.set_quota_supervisor(enabled=True, peak_server_calls=(490, None), sleep_after=["server_calls_h"], sleepyhead=True)
 ```
 >_It will sleep after **hourly** server calls reaches its peak given - `490` and **never allow** one more extra request to the server out of the peak and **wake up** when **new hour** comes in WHILST **daily** server calls **will not be** supervised at all- as Alicia wishes_.
 
@@ -851,7 +1351,7 @@ session.set_quota_supervisor(enabled=True, peak_server_calls=(490, None) sleep_a
     + **wants** QS to _randomize_ his `pre-defined` peak values [at close range] each new _hour_/_day_: **uses** `stochastic_flow=True` parameter
     + **wants** the program to sleep after reaching **hourly** _follow_ peak and **daily** _unfollow_ peak: **adds** `"follows_h"` and `"unfollows_d"`into `sleep_after` parameter
 ```python
-session.set_quota_supervisor(enabled=True, peak_follows=(56, 660), peak_unfollows=(49, 550) sleep_after=["follows_h", "unfollows_d"], stochastic_flow=True, notify_me=True)
+session.set_quota_supervisor(enabled=True, peak_follows=(56, 660), peak_unfollows=(49, 550), sleep_after=["follows_h", "unfollows_d"], stochastic_flow=True, notify_me=True)
 ```
 
 ---
@@ -1208,6 +1708,203 @@ There are **several** `use cases` of this tool for **various purposes**.
 
 
 
+## Text Analytics
+
+
+### Yandex Translate API
+
+<img src="https://yastatic.net/www/_/Q/r/sx-Y7-1azG3UMxG55avAdgwbM.svg" width="196" align="right">
+
+<img src="https://yastatic.net/s3/home/logos/services/1/translate.svg" width="66" align="left">
+
+###### Offers excellent language detection and synchronized translation for over 95 languages 😎 worldwide
+
+_This service currently is supported only by the [Interact by Comments](#interact-by-comments) feature_.
+
+#### Usage
+Go [**sign up**](https://translate.yandex.com/developers/keys) on [_translate.yandex.com_](https://translate.yandex.com) and get a _free_ `API_key`;  
+_Then configure its usage at your **quickstart** script_,
+```python
+session.set_use_yandex(enabled=True,
+                       API_key='',
+                       match_language=True,
+                       language_code="en")
+```
+
+
+#### Parameters
+`enabled`
+: Put `True` to **activate** or `False` to **deactivate** the service usage;  
+
+`API_key`
+: The _key_ which is **required** to authenticate `HTTP` _requests_ to the **API**;  
+
+`match_language`
+: **Enable** if you would like to match the language of the text;
+
+`language_code`
+: **Set** your desired language's code to **match language** (_if it's enabled_);
+>You can get the list of all supported languages and their codes at [_tech.yandex.com_](https://tech.yandex.com/translate/doc/dg/concepts/api-overview-docpage/#api-overview__languages).
+
+
+#### Rate Limits
+In its _free_ plan, the **daily** request _limit_ is `1,000,000` characters and the **monthly** _limit_ is `10,000,000` characters.
+>To increase the request limit, you can **switch** to the `fee-based` version of the service (_$`15`/million chars_)..
+
+
+#### Examples
+
+**1**-) Matching language;
+```python
+session.set_use_yandex(enabled=True, API_key='', match_language=True, language_code="az")
+```
+Target text
+: "_your technique encourages📸 me_"  
+
+_Now that text is gonna be labeled **inappropriate** COS its language is `english` rather than the desired `azerbaijani`_..    
+
+**2**-) Enabling the **Yandex** service _but NOT_ matching language;
+Since **Yandex** Translate is being used [internally] by the **MeaningCloud** service, you can just provide the API key of **Yandex** and enable it without enabling the `match_language` parameter what will be sufficient for the **MeaningCloud** to work..
+```python
+session.set_use_yandex(enabled=True, API_key='', match_language=False)
+```
+>And yes, you can enable **Yandex** service to make it be available for **MeaningCloud** and then also _match language_ if you like, in the same setup just by turning the `match_language` parameter on..
+
+
+#### Legal Notice
+[Powered by Yandex.Translate](http://translate.yandex.com/)
+
+
+
+### MeaningCloud Sentiment Analysis API
+
+<img src="https://www.meaningcloud.com/developer/img/LogoMeaningCloud210x85.png" width="210" align="right">
+
+###### Offers a detailed, multilingual analysis of all kind of unstructured content determining its sentiment ⚖
+_This service currently is supported only by the [Interact by Comments](#interact-by-comments) feature_.
+
+Determines if text displays _positive_, _negative_, or _neutral_ sentiment - or is _not possible_ to detect.  
+Phrases are identified with the _relationship between_ them evaluated which identifies a _global polarity_ value of the text.
+
+
+#### Usage
+**1**-) Go [**sign up**](https://www.meaningcloud.com/developer/login) (_offers **sign in** with_ 😎 _**Github**_) on [_meaningcloud.com_](https://www.meaningcloud.com) and get a _free_ `license_key`;  
+_Then configure its usage at your **quickstart** script_,
+```python
+session.set_use_meaningcloud(enabled=True,
+                             license_key='',
+                             polarity="P",
+                             agreement="AGREEMENT",
+                             subjectivity="SUBJECTIVE",
+                             confidence=94)
+```
+**2**-) Install its _package_ for **python** by `pip`;
+```powershell
+pip install MeaningCloud-python
+```
+**3**-) Turn on **Yandex** _Translate_ service which is a **requirement** for the language _detection_ & _translation_ at request;  
+_To have it configured, read its [documentation](#yandex-translate-api)_.
+
+
+#### Parameters  
+`enabled`
+: Put `True` to **activate** or `False` to **deactivate** the service usage;  
+
+`license_key`
+: The license key is **required** to do _calls_ to the API;  
+
+`polarity`
+: It indicates the polarity found (_or not found_) in the text and applies to the **global** polarity of the text;  
+_It's a **graduated** polarity - rates from **very** negative to **very** positive_.
+
+| `score_tag` |                   definition                    |  
+| ----------- | ----------------------------------------------- |    
+|    `"P+"`   |       match if text is _**strong** positive_    |  
+|    `"P"`    |       match if text is _positive_ or above      |   
+|    `"NEU"`  |       match if text is _neutral_ or above       |  
+|    `"N"`    |       match if text is _negative_ or above      |
+|    `"N+"`   | match if text is _**strong** negative_ or above |  
+|    `None`   |     do not match per _polarity_ found, at all   |  
+
+  > By "_or above_" it means- _e.g._, if you set `polarity` to `"P"`, and text is `"P+"` then it'll also be appropriate (_as it always leans towards positivity_) ..
+
+`agreement`
+: Identifies **opposing** opinions - _contradictory_, _ambiguous_;  
+_It marks the agreement **between** the sentiments detected in the text, the sentence or the segment it refers to_.
+
+|    `agreement`   |                            definition                                     |  
+| ---------------- | ------------------------------------------------------------------------- |    
+|   `"AGREEMENT"`  |       match if the different elements have **the same** polarity          |  
+| `"DISAGREEMENT"` | match if there is _disagreement_ between the different elements' polarity |   
+|      `None`      |              do not match per _agreement_ found, at all                   |    
+
+
+`subjectivity`
+: Identification of _opinions_ and _facts_ - **distinguishes** between _objective_ and _subjective_;  
+_It marks the subjectivity of the text_.
+
+| `subjectivity` |                          definition                           |  
+| -------------- | ------------------------------------------------------------- |    
+| `"SUBJECTIVE"` |           match if text that has _subjective_ marks           |  
+| `"OBJECTIVE"`  | match if text that does not have **any** _subjectivity_ marks |   
+|     `None`     |         do not match per _subjectivity_ found, at all         |    
+
+`confidence`
+: It represents the _confidence_ associated with the sentiment analysis **performed on the** text and takes an integer number in the _range of_ `(0, 100]`;  
+>If you **don't want to** match per _confidence_ found, at all, use the value of `None`.
+
+
+#### Rate Limits
+It gives you `20 000` single API calls per each month (_starting from the date you have **signed up**_).  
+It has _no daily limit_ but if you hit the limit set for number of requests can be carried out concurrently (_per second_) it'll return with error code of `104` rather than the result 😉
+
+
+#### Language Support
+**MeaningCloud** currently supports a generic sentiment model (_called general_) in these languages: _english_, _spanish_, _french_, _italian_, _catalan_, and _portuguese_.  
+>You can define your own sentiment models using the user sentiment models console and work with them in the same way as with the sentiment models it provides.  
+
+But **no need to worry** IF your _language_ or _target audience's language_ is NONE of those **officially** supported.  
+Cos, to **increase the coverage** and support **all other** languages, as well, **Yandex** _Translate_ service comes to rescue!  
+It detects the text's langugage before passing it to **MeaningCloud**, and, if its language is not supported by **MeaningCloud**, it translates it into english and only then passes it to **MeaningCloud** _Sentiment Analysis_..
+
+
+#### Examples
+**a** -) Match **ONLY** per `polarity` and `agreement`
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P", agreement="AGREEMENT")
+```
+Target text
+: "_I appreciate your innovative thinking that results, brilliant images_"  
+
+_Sentiment Analysis_ results for the text:
+
+| `score_tag` |  `agreement`  | `subjectivity` | `confidence` |
+| ----------- | ------------- | -------------- | ------------ |
+|   `"P+"`    | `"AGREEMENT"` | `"SUBJECTIVE"` |     `100`    |
+
+_Now that text is gonna be labeled **appropriate** COS its polarity is `"P+"` which is more positive than `"P"` and `agreement` values also do match_..  
+
+**b** -) Match **FULLY**
+```python
+session.set_use_meaningcloud(enabled=True, license_key='', polarity="P+", agreement="AGREEMENT", subjectivity="SUBJECTIVE", confidence=98)
+```
+Target text
+: "_truly fantastic but it looks sad!_"  
+
+_Sentiment Analysis_ results for the text:
+
+| `score_tag` |    `agreement`   | `subjectivity` | `confidence` |
+| ----------- | ---------------- | -------------- | ------------ |
+|    `"P"`    | `"DISAGREEMENT"` | `"SUBJECTIVE"` |     `92`    |
+
+_Now that text is gonna be labeled **inappropriate** COS its polarity is `"P"` which is less positive than `"P+"` and also, `agreement` values also **do NOT** match, and **lastly**, `confidence` is **below** user-defined `98`_..    
+
+
+#### Legal Notice
+This project uses MeaningCloud™ (http://www.meaningcloud.com) for Text Analytics.
+
+
+
 ### Use a proxy
 
 You can use InstaPy behind a proxy by specifying server address and port
@@ -1216,7 +1913,7 @@ You can use InstaPy behind a proxy by specifying server address and port
 session = InstaPy(username=insta_username, password=insta_password, proxy_address='8.8.8.8', proxy_port=8080)
 ```
 
-To use proxy with authentication you should firstly generate proxy chrome extension (works only with Chrome and headless_browser=False).
+To use proxy with authentication you should firstly generate proxy chrome extension (works only with headless_browser=False unless using FF where it works with headless_browser=True).
 
 ```python
 from proxy_extension import create_proxy_extension
@@ -1252,6 +1949,7 @@ Emoji text codes are implemented using 2 different naming codes. A complete list
 > 1. You can use only Unicode characters with no more than 4 characters and you have to use the unicode code (e. g. ```\u1234```). You find a list of emoji with unicode codes on [Wikipedia](https://en.wikipedia.org/wiki/Emoji#Unicode_blocks), but there is also a list of working emoji in ```/assets```
 >
 > 2. You have to convert your comment to Unicode. This can safely be done by adding an u in front of the opening apostrophe: ```u'\u1234 some comment'```
+
 
 ## Running on a Server
 
@@ -1342,7 +2040,7 @@ To access yor container console to run bot type `localhost:22` in your favorite 
 docker-compose -f docker-prod.yml up -d
 ```
 
-## Running all-in-one with Docker (obsolete)
+## Running all-in-one with Docker (legacy)
 
 ### 1. Build the Image
 
@@ -1407,38 +2105,220 @@ pip install schedule
 
 ```python
 from instapy import InstaPy
+from instapy import smart_run
+from instapy import set_workspace
 import schedule
 import time
 
+#your login credentials
+insta_username=''
+insta_password=''
+
+#path to your workspace
+set_workspace(path=None)
+
 def job():
-    try:
-        session = InstaPy(selenium_local_session=False) # Assuming running in Compose
-        session.set_selenium_remote_session(selenium_url='http://selenium:4444/wd/hub')
-        session.login()
-        session.set_do_comment(enabled=True, percentage=20)
-        session.set_comments(['Well done!'])
-        session.set_do_follow(enabled=True, percentage=5, times=2)
-        session.like_by_tags(['love'], amount=100, media='Photo')
-        session.end()
-    except:
-        import traceback
-        print(traceback.format_exc())
+  session = InstaPy(username=insta_username, password=insta_password)
+  with smart_run(session):
+    session.set_do_comment(enabled=True, percentage=20)
+    session.set_comments(['Well done!'])
+    session.set_do_follow(enabled=True, percentage=5, times=2)
+    session.like_by_tags(['love'], amount=100, media='Photo')
+
 
 schedule.every().day.at("6:35").do(job)
 schedule.every().day.at("16:22").do(job)
 
 while True:
-    schedule.run_pending()
-    time.sleep(1)
+  schedule.run_pending()
+  time.sleep(10)
 ```
 
 
 
+## Workspace folders
+###### _InstaPy_ stores user's data files inside the **workspace** folder.
+
+By default, it is gonna be the **InstaPy** folder at your home folder.  
+Such as, if your username is `Cherry`, let's show where your InstaPy folder would be,
+
+|   OS    |       home folder     | _InstaPy_ **workspace** folder |  
+| ------- | --------------------- | ------------------------------ |
+| Windows | `C:\\Users\\Cherry\\` | `C:\\Users\\Cherry\\InstaPy\\` |
+|   Mac   |    `/Users/Cherry/`   |    `/Users/Cherry/InstaPy/`    |
+|  Linux  |    `/home/Cherry/`    |    `/home/Cherry/InstaPy/`     |
+
+Note that, at the start of each run, it shows you the **workspace** folder in use.
+
+<br /> 
+
+<details>
+  <summary>
+    <b>
+      What will be stored at the <b>workspace</b> folder? 🔍
+    </b>
+  </summary>
+
+Anything that is _user's **data file**_ will be stored in there.  
+Such as,  
+- **logs** folder - _log and other storage files_  
+- **assets** folder - _e.g. user chosen chromedriver executable(s)_  
+- **db** folder - _databases_  
+- etc.  
+
+</details>
+
+
+### Migrating your data to the workspace folder
+After installing InstaPy with pip, you have to run it once by calling `python quickstart.py`. Once the web browser opens, you can abort the session by closing the browser or your terminal. 
+
+You will now find an `InstaPy` folder located at the above mentioned home folder.
+Simply copy and paste the content of your logs folder into that workspace folder in order to assure that all your data is migrated.
+
+> Please note that you only have to do this once. After that, you can get rid of your old, downloaded version of this repository since the InstaPy folder in your home folder will now be the default location for your data.
+
+### Set a _custom_ workspace folder
+You can use `set_workspace()` function to set a custom **workspace** folder,
+```python
+from instapy import InstaPy
+from instapy import set_workspace
+
+set_workspace("C:\\My\\Custom\\Path\\InstaPy\\")
+
+session = InstaPy(...)
+```
+
+<details>
+  <summary>
+    <b>
+      Rules 🔎
+    </b>
+  </summary>
+
+**1**-) You have to set your custom **workspace** folder before instantiates _InstaPy_.  
+**2**-) Your custom **workspace** folder must have `InstaPy` (*_case sensitive_) word in its name.  
++ If your path does not have it,  
+`set_workspace("C:\\Other\\Path\\InstaPie\\")`  
+then your **workspace** folder will be named and made as,  
+`"C:\\Other\\Path\\InstaPie\\InstaPy\\"`  
+👆🏼 `InstaPy` directory will be added as a new subdirectory in there, and be your **workspace** folder.
+
++ If your custom **workspace** folder name has a case-insensitive default name in it- `Instapy`, `instapy`, `instaPY`, etc.,  
+`set_workspace("C:\\Other\\Path\\instapy2\\")`  
+then your **workspace** folder will be,   
+`"C:\\Other\\Path\\InstaPy2\\"`  
+as you can see, it normalizes name and sets the **workspace** folder.
+
+
+##### _Why naming is so important?_
+ - It will help to easily adapt to the flexible _InstaPy_ usage with that default formal name.
+
+</details>
+
+
+### Set a custom **workspace** folder _permanently_ with ease
+If you want to set your custom **workspace** folder permanently and more easily, add a new environmental variable named `INSTAPY_WORKSPACE` with the value of the path of the desired **workspace** folder to your operating system.  
+Then that will be the default **workspace** folder in all sessions [unless you change it using `set_workspace()` or so].
+
+
+### _Get_ the location of the workspace folder in use
+If you ever want to **get** the _location_ of your **workspace** folder, you can use
+the `get_workspace()` function,
+```python
+from instapy import InstaPy
+from instapy import smart_run
+from instapy import set_workspace
+from isntapy import get_workspace
+
+set_workspace(path="C:\\Custom\\Path\\InstaPy_super\\")
+
+session = InstaPy(username="abc", password="123")
+
+with smart_run(session):
+    # lots of code
+    workspace_in_use = get_workspace()
+    print(workspace_in_use["path"])
+    # code code
+```
+Note that, `get_workspace()` is a function used _internally_ and makes a **workspace** folder [by default at home folder] if not exists.  
+It means, you must use only the `set_workspace()` feature to set a custom **workspace** folder and not try to use `get_workspace()` for that purpose..
+
+
+### Set a custom _location_ 
+You can set any of the **custom** _locations_ you like, **any time**!  
+E.g. setting the _location_ of the **database** file,  
+```python
+from instapy import InstaPy
+from instapy import set_workspace
+
+
+set_workspace(...)   # if you will set a custom workspace, set it before anything
+Settings.db_location = "C:\\New\\Place\\DB\\instapy.db"
+
+session = InstaPy(...)
+# code code
+```
+
+
+<details>
+  <summary>
+    <b>
+      Restrictions 🔎
+    </b>
+  </summary>
+
+**a**-) You cannot set a custom **workspace** folder after _InstaPy_ has been instantiated;  
+_E.g. while instantiating _InstaPy_, you make a logger at that given location and trying to change the_ `log_location` _really needs to restart the LOGGER adapter and make another logger instance, but it can be achieved in future_.
+
+**b**-) If you set a custom **workspace** once and then set it again then your data locations will still use the previous locations:
+```python
+from instapy import InstaPy
+from instapy import set_workspace
+
+# first time settings custom workspace folder
+set_workspace("C:\\Users\\MMega\\Desktop\\My_InstaPy\\")
+# second time settings custom workspace folder
+set_workspace("C:\\Users\\MMega\\Documents\\My_InstaPy\\")
+
+# locations of data files, e.g. chromedriver executable, logfolder, db will use first custom workspace locations.
+# if you still want to change their location to second one, then do this one by one:
+Settings.log_location = "C:\\Users\\MMega\\Documents\\My_InstaPy\\logs\\"
+Settings.database_location = "C:\\Users\\MMega\\Documents\\My_InstaPy\\db\\instapy.db"
+Settings.chromedriver_location = "C:\\Users\\MMega\\Documents\\My_InstaPy\\logs\\chromedriver.exe"
+```
+As you can see, you have to use `set_workspace()` only once.  
+Why it is so difficult in those 👆🏼 regards?  
+ - It's to preserve custom location assignments alive (`Settings.*`) cos otherwise setting another **workspace** would override any previously _manually_ assigned location(s). 
+
+</details>
+
+## Extensions
+[1. Session scheduling with Telegram](https://github.com/Tkd-Alex/Telegram-InstaPy-Scheduling)
+
 ## Extra Information
 
+### Custom chromedriver version
+By default, InstaPy downloads the latest version of the chromedriver.
+Unless you need a specific version of the chromdriver, you're ready to go.
 
-#### How not to be banned?
-Built-in delays prevent your account from getting banned. (Just make sure you don't like 1000s of post/day)
+You have two options to install the version you want to have:
+1. You can get the desired version of chromedriver binary by installing the same version of instapy-chromedriver package by pip [per their python version].
+1. You can manually download and put the chromedriver binary into the assets folder [at their workspace] and then InstaPy will always use it. You can find the specific versions of **chromedriver** for your OS [here](https://sites.google.com/a/chromium.org/chromedriver/downloads). Extract the .**zip** file and put it into the **assets** folder [at your **workspace** folder].
+
+### Using one of the templates
+
+If you're interested in what other users setup looks like, feel free to check out the `quickstart_templates` folder which includes several working setups with different features.
+
+In order to use them, just copy the desired file and put it next to the `quickstart.py` file in the, what is called root, directory.
+
+Finally simply adjust the username and any tags or firend lists before executing it.
+That's it.
+
+
+### How not to be banned
+Built-in delays prevent your account from getting banned. 
+However, excessive use of this tool may result in action blocks or permanent bans.
+Use the Quota Supervisor feature to set some fixed limits for the bot for maximum safety.
 
 
 ### Chrome Browser
@@ -1458,7 +2338,291 @@ session.set_simulation(enabled=True, percentage=66)
 ```
 
 
+### Disable Image Loading
+If you want to save some bandwidth, you can simply disable the image/video loading. This will lead to, if you watch InstaPy running, not downloading and displaying any more images and videos.
+
+> Note: This can save a tremendous amount of data. This is turned off by default (`False`).
+
+To do this simply pass the `disable_image_load=True` parameter in the InstaPy constructor like so:
+```python
+session = InstaPy(username=insta_username,
+                  password=insta_password,
+                  headless_browser=False,
+		              disable_image_load=True,
+                  multi_logs=True)
+```
+
+
+### Using Multiple Chromedrivers
+If you need multiple os versions of chromedriver just rename it like:
+```bash
+chromedriver_linux
+chromedriver_osx
+chromedriver_windows
+```
+
+
+### Changing DB or Chromedriver locations
+If you want to change the location/path of either the DB or the chromedriver, simply head into the `instapy/settings.py` file and change the following lines.
+Set these in instapy/settings.py if you're locating the library in the /usr/lib/pythonX.X/ directory.
+```
+Settings.database_location = '/path/to/instapy.db'
+Settings.chromedriver_location = '/path/to/chromedriver'
+```
+
+
+### Custom action delays
+###### _After doing each action- like, comment, follow or unfollow, there is a sleep delay to provide smooth activity flow_.  
+##### But you can set a _custom_ sleep delay for each action yourself by using the `set_action_delays` setting!
+```python
+session.set_action_delays(enabled=True,
+                           like=3,
+                           comment=5,
+                           follow=4.17,
+                           unfollow=28)
+```
+_Now it will sleep `3` seconds **after putting every single like**, `5` seconds for every single comment and similarly for the others.._
+
+
+You can also customize the sleep delay of _e.g._ **only the likes**:
+```python
+session.set_action_delays(enabled=True, like=3)
+```
+
+##### Wanna go smarter? - use `random_range(min, max)`  
+By just enabling `randomize` parameter, you can **enjoy** having random sleep delays at desired range, e.g.,
+```python
+session.set_action_delays(enabled=True, like=5.2, randomize=True, random_range=(70, 140))
+```
+_There, it will have a **random sleep delay between** `3.64` (_`70`% of `5.2`_) and `7.28`(_`140`% of `5.2`_) seconds _each time_ **after putting a like**._  
++ You can also put **only the max range** as- `random_range=(None, 200)`  
+Then, the _min range will automatically be_ `100`%- the same time delay itself.  
+And the random sleep delays will be between `5.2` and `10.4` seconds.  
++ If you put **only the min range** as- `random_range=(70, None)`  
+Then, the _max range will automatically be_ `100`%- the same time delay itself.  
+And the random sleep delays will be between `3.64` and `5.2` seconds.  
++ But if you **put `None` to both** min & max ranges as- `random_range=(None, None)`  
+Then no randomization will occur and the sleep delay will always be `5.2` seconds.
++ Heh! You **mistakenly put** min range instead of max range as- `random_range=(100, 70)`?  
+No worries. It will automatically take the smaller number as min and the bigger one as max.
++ Make sure to use the values **bigger than `0`** for the `random_rage` percentages.  
+E.g. `random_range=(-10, 140)` is an invalid range and no randomization will happen.
++ You can provide **floating point numbers** as percentages, too!  
+`random_range=(70.7, 200.45)` will work greatly.
+
+###### Note: There is a _minimum_ **default** delay for each action and if you enter a smaller time of delay than the default value, then it will **pick the default value**. You can turn that behaviour off with `safety_match` parameter.
+```python
+session.set_action_delays(enabled=True, like=0.15, safety_match=False)
+```
+_It has been held due to safety considerations. Cos sleeping a respective time after doing actions- for example ~`10` seconds after an unfollow, is very important to avoid possible temporary blocks and if you might enter e.g. `3` seconds for that without realizing the outcome..._
+
+
+
+### How to avoid _python_ & **pip** confusion
+
+Sometimes you have **multiple** _python_ installations in your system.  
+Then you'll obviously have crazy aliases linked to _python_ and **pip** commands.  
+
+For example, let's assume you have _python_ 2.7 & _python_ 3.7 installed in your system,  
+
+| _python_ version | _python_ alias | **pip** alias |  
+| ---------------- | -------------- | ------------- |
+|       2.7        |     `py2`      |     `pip`     |
+|       3.7        |    `python`    |     `pip3`    |
+
+And once you install a package by the `pip` command and try to run it with `python` command, it will confuse you.  
+
+Why? - cos,  
+- `pip` command is for _python_ 2.7  
+- `python` command is for _python_ 3.7  
+
+To solve that confusion, use this **style** to install packages by **pip**,
+```powershell
+# install "instapy" package into python 3.7
+python -m pip install instapy
+
+# install "instapy" package into python 2.7
+py2 -m pip install instapy
+```
+
+As you can see, it is,  
+`python -m pip ...`  
+rather than,  
+`pip ...`
+
+Other **pip** commands can be accomplished the same way, too.  
+Such as,
+```powershell
+# update "instapy" package
+python -m pip install instapy -U
+
+# uninstall "instapy" package
+python -m pip uninstall instapy
+
+# show details of the "instapy" package installed by pip
+python -m pip show instapy
+```
+
+Using this style, you will never have to worry about what is the correct alias of the **pip** for you specific _python_ installation and all you have to know is just the _python_'s alias you use.  
+
+
+
+### Pass arguments by CLI
+###### It is recommended to pass your credentials from command line interface rather than storing them inside quickstart scripts.  
+
+Note that, arguments passed from the CLI has higher priorities than the arguments inside a **quickstart** script.  
+E.g., let's assume you have,
+```python
+# inside quickstart script
+
+session = InstaPy(username="abc")
+```
+and you start that **quickstart** script as,
+```erlang
+python quickstart.py -u abcdef -p 12345678
+```
+Then, your _username_ will be set as `abcdef` rather than `abc`.  
+_And obviously, if you don't pass the flag, it'll try to get that argument from the **quickstart** script [if any]_.
+
+#### Currently these _flags_ are supported:
+  🚩 `-u` abc, `--username` abc
+   - Sets your username.
+
+  🚩 `-p` 123, `--password` 123
+   - Sets your password.
+
+  🚩 `-pd` 25, `--page-delay` 25
+   - Sets the implicit wait.
+
+  🚩 `-pa` 192.168.1.1, `--proxy-address` 192.168.1.1
+   - Sets the proxy address.
+
+  🚩 `-pp` 8080, `--proxy-port` 8080
+   - Sets the proxy port.
+
+  🚩 `-uf`, `--use-firefox`
+   - Enables Firefox.
+
+  🚩 `-hb`, `--headless-browser`
+   - Enables headless mode.
+
+  🚩 `-dil`, `--disable-image-load`
+   - Disables image load.
+
+  🚩 `-bsa`, `--bypass-suspicious-attempt`
+   - Bypasses suspicious attempt.
+
+  🚩 `-bwm`, `--bypass-with-mobile`
+   - Bypasses with mobile phone.
+
+To get the list of available commands, you can type,
+```erlang
+python quickstart.py -h
+# or
+python quickstart.py --help
+```
+
+#### Examples
+⚽ Let's quickly set your username and password right by CLI,   
+```erlang
+python quickstart.py -u Toto.Lin8  -p 4X27_Tibor
+# or
+python quickstart.py --username Toto.Lin8  --password 4X27_Tibor
+# or
+python quickstart.py -u "Toto.Lin8"  -p "4X27_Tibor"
+```
+
+⚽ Enable Firefox,
+```erlang
+python quickstart.py -uf
+# or
+python quickstart.py --use-firefox
+```
+
+<details>
+<summary>
+  <b>
+    Advanced 🔎
+  </b>
+</summary> 
+
+You can **pass** and then **parse** the **_custom_** CLI arguments you like right inside the **quickstart** script.  
+To do it, open up your **quickstart** script and add these lines,
+```python
+# inside quickstart script
+
+import argparse
+
+my_parser = argparse.ArgumentParser()
+# add the arguments as you like WHICH you will pass
+# e.g., here is the simplest example you can see,
+my_parser.add_argument("--my-data-files-name")
+args, args_unknown = my_parser.parse_known_args()
+
+filename = args.my_data_files_name
+
+# now you can print it
+print(filename)
+
+# or open that file
+with open(filename, 'r') as f:
+    my_data = f.read()
+```
+After adding your custom arguments to the **quickstart** script, you can now **pass** them by CLI, comfortably,
+```erlang
+python quickstart.py --my-data-files-name "C:\\Users\\Anita\\Desktop\\data_file.txt"
+```
+>**NOTE**:  
+Use **dash** in flag and parse them with **underscores**;  
+E.g., we have used the flag as **`--my-data-files-name`** and parsed it as `args.`**`my_data_files_name`** ...
+
+>**PRO**:
+See `parse_cli_args()` function [used internally] inside the **util.py** file to write & parse more advanced flags.  
+You can also import that function into your **quickstart** script and parse the **formal** flags into there to be used, as well.
+
+```python
+# inside quickstart script
+
+from instapy.util import parse_cli_args
+
+
+cli_args = parse_cli_args()
+username = cli_args.username
+
+print(username)
+```
+👆🏼👉🏼 as you will pass the _username_ like,
+```erlang
+python quickstart.py -u abc
+```
+
+</details>
+
+<br />
+
 
 ---
-###### Have Fun & Feel Free to report any issues
+###### Have Fun & Feel Free to report any issues  
 ---
+
+## Credits
+
+### Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](https://github.com/timgrossmann/InstaPy/wiki/How-to-Contribute)].
+
+<a href="https://github.com/timgrossmann/InstaPy/graphs/contributors"><img src="https://opencollective.com/instapy/contributors.svg?width=890&button=false" /></a>
+
+### Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/instapy#backer)]
+
+<a href="https://opencollective.com/instapy#backers" target="_blank"><img src="https://opencollective.com/instapy/backers.svg?width=890"></a>
+
+### Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/instapy#sponsor)]
+
+<a href="https://opencollective.com/instapy/sponsor/0/website" target="_blank"><img src="https://opencollective.com/instapy/sponsor/0/avatar.svg"></a>
+
+

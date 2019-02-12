@@ -2,8 +2,7 @@
 > Use https://m.do.co/c/be9ec19b28c1 to get 10$ free to start your InstaPy journey :wink:
 
 - #### Make sure to use the 1GB RAM version (or better)
-
-- #### Make sure to set ```nogui=True``` in your InstaPy file
+- #### Set ```headless=True``` in your InstaPy file
 - #### Note that current Chrome browser and chromedriver needed for the install only support 64-bit architecture. 
 
 ### General dependencies
@@ -34,13 +33,8 @@ $ sudo rm google-chrome-stable_current_amd64.deb
 ### InstaPy
 
 ```bash
-$ git clone https://github.com/timgrossmann/InstaPy.git
-$ latest_version=$(wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE -O -)
-$ wget https://chromedriver.storage.googleapis.com/${latest_version}/chromedriver_linux64.zip
-$ unzip chromedriver_linux64
-$ mv chromedriver InstaPy/assets/chromedriver
-$ chmod +x InstaPy/assets/chromedriver
-$ chmod 755 InstaPy/assets/chromedriver
-$ cd InstaPy
-$ pip install .
+$ pip install instapy
 ```
+
+> If you see an error telling you that something can't be uninstalled due to it being part of distutils, simply do  
+`pip install instapy --ignore-installed`

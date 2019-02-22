@@ -790,7 +790,7 @@ def scroll_bottom(browser, element, range_int):
             "arguments[0].scrollTop = arguments[0].scrollHeight", element)
         # update server calls
         update_activity()
-        sleep(1)
+        sleep(0.3)
 
     return
 

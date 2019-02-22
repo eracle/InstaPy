@@ -197,8 +197,6 @@ _The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - Fix a little misbehaviour in `set_relationship_bounds()` with min_posts & max_posts. Now `enabled` parameter controls the whole setting.
-- Update `grpcio` package's version in **requirements.txt** to `1.16.1`. Its `1.16.0` had a bug duplicating logger messages.  
-
 
 ## [Unreleased] - 2018-11-26
 ### Changed

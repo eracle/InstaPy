@@ -728,8 +728,15 @@ def get_users_through_dialog(browser,
                              channel,
                              jumps,
                              logger,
-                             logfolder):
-    sleep(2)
+                             logfolder,
+                             past_followers=None,
+                             wait_seconds=600,
+                             ):
+
+    if past_followers is None:
+        past_followers = []
+
+    sleep(1)
     real_amount = amount
     if randomize and amount >= 3:
         # expanding the population for better sampling distribution
@@ -769,10 +776,21 @@ def get_users_through_dialog(browser,
             sc_rolled += 1
             simulator_counter += 1
             buttons = get_buttons_from_dialog(dialog, channel)
+
+            # breaking the scroll if past follower is encountered
+            partial_usernames_extracted = dialog_username_extractor(buttons)
+            for person in partial_usernames_extracted:
+                if person in past_followers:
+                    # todo: debugging from here
+                    print('Past follower encountered, breaking the scroll down: {}'.format(person))
+                    abort = True
+
             total_list = len(buttons)
             progress_tracker(total_list, amount, start_time, logger)
 
-        abort = (before_scroll == total_list)
+        if not abort:
+            abort = (before_scroll == total_list)
+
         if abort:
             if total_list < real_amount:
                 print('')
@@ -785,7 +803,7 @@ def get_users_through_dialog(browser,
                     "Too many requests sent!  attempt: {}  |  gathered "
                     "links: {}"
                     "\t~sleeping a bit".format(try_again + 1, total_list))
-                sleep(random.randint(600, 655))
+                sleep(random.randint(wait_seconds, int(wait_seconds*1.09)))
                 try_again += 1
                 sc_rolled = 0
 
@@ -850,6 +868,9 @@ def get_users_through_dialog(browser,
             person_list.insert(random.randint(0, abs(len(person_list) - 1)),
                                user)
 
+    # removing past followers from the returned list
+    person_list = [person for person in person_list if person not in past_followers]
+
     return person_list, simulated_list
 
 
@@ -858,7 +879,6 @@ def dialog_username_extractor(buttons):
 
     if not isinstance(buttons, list):
         buttons = [buttons]
-
     person_list = []
     for person in buttons:
         if person and hasattr(person, 'text') and person.text:

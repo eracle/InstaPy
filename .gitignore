@@ -114,3 +114,7 @@ Pipfile
 
 # Instances
 z_*
+
+
+# eracle's fork related scripts:
+scrape_delta_followers.py

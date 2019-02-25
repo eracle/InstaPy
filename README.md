@@ -255,7 +255,7 @@ For example, there is a **bug** and its **fix** is _merged to the repo_ but a ne
 
 Then, you can do this to install the **actual state** of the _repo_ 😋
 ```erlang
-pip install -I https://github.com/timgrossmann/InstaPy/zipball/master
+pip install -I https://github.com/eracle/InstaPy/zipball/master
 ```
 
 Worths to note that, this installation option does not require _Git_ to be installed, too.  
@@ -288,7 +288,7 @@ That's why you will be able to install the actual state of the repo using the `-
 
 **1**. Clone _InstaPy_ repository into your computer
 ```erlang
-git clone https://github.com/timgrossmann/InstaPy.git
+git clone https://github.com/eracle/InstaPy.git
 ```
 
 **2**. Navigate to the _InstaPy_ project root directory
@@ -336,7 +336,7 @@ python setup.py install
 
 **1**. Clone _InstaPy_ repository into your computer
 ```erlang
-git clone https://github.com/timgrossmann/InstaPy.git
+git clone https://github.com/eracle/InstaPy.git
 ```
 
 **2**. Navigate to the _InstaPy_ project root directory
@@ -365,7 +365,7 @@ pip install -e .
 
 **1**. Clone _InstaPy_ repository into your computer
 ```erlang
-git clone https://github.com/timgrossmann/InstaPy.git
+git clone https://github.com/eracle/InstaPy.git
 ```
 
 **2**. Navigate to the _InstaPy_ project root directory
@@ -419,7 +419,7 @@ source venv/bin/activate
 
 **3**. Install the **instapy** package from _Git_ by using **pip**
 ```erlang
-pip install git+https://github.com/timgrossmann/InstaPy.git
+pip install git+https://github.com/eracle/InstaPy.git
 ```
 
 
@@ -2671,7 +2671,7 @@ python quickstart.py -u abc
 
 This project exists thanks to all the people who contribute. [[Contribute](https://github.com/timgrossmann/InstaPy/wiki/How-to-Contribute)].
 
-<a href="https://github.com/timgrossmann/InstaPy/graphs/contributors"><img src="https://opencollective.com/instapy/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/eracle/InstaPy/graphs/contributors"><img src="https://opencollective.com/instapy/contributors.svg?width=890&button=false" /></a>
 
 ### Backers
 

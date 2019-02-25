@@ -11,7 +11,7 @@ import re
 
 
 summary = "Tool for automated Instagram interactions"
-project_homepage = "https://github.com/timgrossmann/InstaPy"
+project_homepage = "https://github.com/eracle/InstaPy"
 here = path.abspath(path.dirname(__file__))
 
 

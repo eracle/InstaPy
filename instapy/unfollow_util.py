@@ -813,8 +813,11 @@ def get_users_through_dialog(browser,
     sc_rolled = 0
 
     # find dialog box
-    dialog_address = "//body/div[2]/div/div[2]"
-    dialog = browser.find_element_by_xpath(dialog_address)
+    # change made wrt Instapy master branch:
+    # in order to get the following method more robust to possible changes on the html
+    # I am getting all the bottom dialog webelements, and I am taking the first
+    dialog_address = "//body/div/div/div[2]"
+    dialog = browser.find_elements_by_xpath(dialog_address)[0]
 
     # scroll to end of follower list to initiate first load which hides the
     # suggestions

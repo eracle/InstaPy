@@ -848,7 +848,7 @@ def get_users_through_dialog(browser,
             for person in partial_usernames_extracted:
                 if person in past_followers:
                     # todo: debugging from here
-                    print('Past follower encountered, breaking the scroll down: {}'.format(person))
+                    # print('Past follower encountered, breaking the scroll down: {}'.format(person))
                     abort = True
 
             total_list = len(buttons)
@@ -859,12 +859,12 @@ def get_users_through_dialog(browser,
 
         if abort:
             if total_list < real_amount:
-                print('')
+                # print('')
                 logger.info("Failed to load desired amount of users!\n")
 
         if sc_rolled > 85:  # you may want to use up to 100
             if total_list < amount:
-                print('')
+                # print('')
                 logger.info(
                     "Too many requests sent!  attempt: {}  |  gathered "
                     "links: {}"

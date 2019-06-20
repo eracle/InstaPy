@@ -4,6 +4,71 @@ The **goal** of this file is explaining to the users of our project the notable 
 _The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)_.
 
 
+## [0.5.1] - 2019-06-18
+### Added
+- Documentation for basic Selenium Errors
+- Import `Settings` in docs
+
+### Fixed
+- `session.follow_user_following()` broken behavior
+
+
+## [0.5.0] - 2019-06-03
+### Added
+- Additional check for like block.
+
+### Changed
+- Remove support for python2
+- Information regarding the nogui parameter in documentation.
+- XPath Isolation
+- Remove redundant assignment of pod_post_ids
+- Remove address var assigned multiple times without intermediate usage
+- `set_mandatory_language` can maintain multiple character sets
+- Feature finetuning comments for pods
+
+### Fixed
+- Interact_by_comments aborts when self.abort is true
+- Media type filter (Photo, Video) in get_links
+- 'Failed to get comments' issue 
+- Threaded session ending with exception `ValueError: signal only works in main thread`
+- `like_image` in dev has this arg
+- Verifying mandatory words when the script can not get post description
+- Codacy checks for unused var, out of scope, and missing args
+
+
+## [0.4.3] - 2019-05-15
+### Fixed
+- Commenting issue #4409
+
+
+## [0.4.2] - 2019-04-15
+### Fixed
+- Fail of whole pod run on exception
+
+
+## [0.4.1] - 2019-04-06
+### Added
+- Support for split database with -sdb flag to avoid SQLite lock up
+
+### Fixed
+- "Failed to find login button" when trying to login (add KEYS.ENTER to submit login data)
+
+
+## [0.4.0] - 2019-04-03
+### Added
+- Improved info provided by log messages in instapy.py and like_util.py
+- Possibility to skip non bussiness accounts
+
+### Changed
+- Remove docker from core, moved into instapy-docker repo
+- Remove quickstart templates and only reference instapy-quickstart
+- Restructure README and add new DOCUMENTATION file
+
+### Fixed
+- "UnboundLocalError: local variable 'tag' referenced before assignment" when there is no smart-hastag genereated
+- xPath to dialog_address
+
+
 ## [0.3.4] - 2019-03-17
 ### Added
 - (re) add page_reload, after cookie load, on login_user()

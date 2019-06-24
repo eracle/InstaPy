@@ -1,5 +1,5 @@
+import io
 import zipfile
-import os
 
 
 def create_proxy_extension(proxy):
@@ -60,14 +60,10 @@ def create_proxy_extension(proxy):
         );
     """ % (ip, port, login, password)
 
-    dir_path = 'assets/chrome_extensions'
+    pluginfile = io.BytesIO()
 
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
-
-    pluginfile = '%s/proxy_auth_%s:%s.zip' % (dir_path, ip, port)
     with zipfile.ZipFile(pluginfile, 'w') as zp:
         zp.writestr("manifest.json", manifest_json)
         zp.writestr("background.js", background_js)
 
-    return pluginfile
+    return pluginfile.getvalue()

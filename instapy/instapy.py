@@ -1,21 +1,25 @@
 """OS Modules environ method to get the setup vars from the Environment"""
-# import built-in & third-party modules
-import time
-from datetime import datetime, timedelta
-from math import ceil
-import random
-from sys import platform
-from platform import python_version
-import os
+import base64
 import csv
 import json
-import requests
-from selenium import webdriver
-from selenium.webdriver import DesiredCapabilities
 import logging
+import os
+import random
+# import built-in & third-party modules
+import time
 from contextlib import contextmanager
 from copy import deepcopy
+from datetime import datetime, timedelta
+from platform import python_version
+from sys import platform
+
+import requests
 import unicodedata
+from math import ceil
+from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
+from selenium.webdriver.chrome.options import Options
+
 try:
     from pyvirtualdisplay import Display
 except ModuleNotFoundError:
@@ -351,7 +355,9 @@ class InstaPy:
             raise InstaPyError(err_msg)
 
     def set_selenium_remote_session(self, selenium_url='',
-                                    selenium_driver=None):
+                                    selenium_driver=None,
+                                    proxy_chrome_extension=None
+                                    ):
         """
         Starts remote session for a selenium server.
         Creates a new selenium driver instance for remote session or uses
@@ -373,9 +379,17 @@ class InstaPy:
                     command_executor=selenium_url,
                     desired_capabilities=DesiredCapabilities.FIREFOX)
             else:
+                chrome_options = Options()
+
+                # add proxy extension
+                if proxy_chrome_extension:
+                    chrome_options.add_encoded_extension(base64.b64encode(proxy_chrome_extension).decode('ascii'))
+
                 self.browser = webdriver.Remote(
                     command_executor=selenium_url,
-                    desired_capabilities=DesiredCapabilities.CHROME)
+                    desired_capabilities=DesiredCapabilities.CHROME,
+                    options=chrome_options
+                )
 
         message = "Session started!"
         highlight_print(self.username, message, "initialization", "info",
